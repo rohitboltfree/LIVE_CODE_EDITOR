@@ -1,10 +1,15 @@
-import './App.css'
+// import './App.css'
+// // import Layout from './components/Layout'
+// import Header from './components/Header'
+// import { Outlet } from 'react-router-dom'
 
 function App() {
   return (
-    <main>
-      HELLO WORLD to aman
-    </main>
+   <>
+    {/* <Header/>
+    <Outlet/> */}
+   </>
+
   )
 }
 
