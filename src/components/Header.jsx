@@ -1,39 +1,37 @@
-// import { grey } from '@mui/material/colors';
-import React from 'react'
+import React, { useState } from 'react';
+import { RxCross2, RxHamburgerMenu } from 'react-icons/rx';
 import {Link, NavLink} from 'react-router-dom'
 
 export default function Header() {
+  
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-      <header className="shadow sticky z-50 top-0 w-full">
-          <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5">
-              <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-                  {/* <Link to="/" className="flex items-center">
-                      <img
-                          src="https://alexharkness.com/wp-content/uploads/2020/06/logo-2.png"
-                          className="mr-3 h-12"
-                          alt="Logo"
-                      />
-                  </Link> */}
-                  <div className="flex items-center lg:order-2">
-                      <Link
-                          to="#"
-                          className="text-gray-800 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
-                      >
-                          Log in
-                      </Link>
-      
-                  </div>
-                  <div
-                      className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
+    <nav className="bg-gray-800">
+      <div className="max-w-7xl mx-auto px-4 justify-between">
+        <div className="flex justify-between items-center h-16">
+          {/* Left side logo */}
+          <div className="flex-shrink-0 flex items-center">
+            <img className="h-8 w-auto" src="/logo.png" alt="Logo" />
+          </div>
+
+          {/* Center links */}
+          <div className="hidden md:block">
+            <div className="ml-10 flex flex-row-reverse justify-between items-baseline space-x-4">
+              <div
+                      className=" justify-between items-center w-full lg:flex md:w-auto md:order-1"
                       id="mobile-menu-2"
                   >
-                      <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+                      <ul className="flex  mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
                           <li>
                               <NavLink
                               to="/"
-                                  className={({isActive}) =>
-
-                                      `${isActive? "text-orange-700":"text-grey-700"}   block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+                                  className={({isActive}) =>  
+                                    `${isActive? 'text-orange-700':'text-grey-700'} text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`
+                                    
                                   }
                               >
                                   Home
@@ -43,20 +41,86 @@ export default function Header() {
                               <NavLink
                               to='/PracticeJS'
                                   className={({isActive}) =>
-
-                                      `${isActive? "text-orange-700":"text-grey-700"}   block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+                                    `${isActive? "text-orange-700":"text-grey-700"} text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`
                                   }
                               >
                                  PracticeJS
                               </NavLink>
                           </li>
-                          
-                          
                       </ul>
                   </div>
-              </div>
-          </nav>
-      </header>
+                  
+            </div>
+          </div>
+
+          {/* Right side login/signup and hamburger menu */}
+          <div className="-mr-2 flex items-center md:hidden">
+           <button onClick={toggleMenu}>
+           { !isOpen ? <RxHamburgerMenu className='text-2xl text-white' />
+           :<RxCross2 className='text-2xl text-white' />}
+           </button>
+                  
+          </div>
+          <div className='hidden md:block justify-center justify-items-end'> 
+                  <Link
+                          to="#"
+                          onClick={toggleMenu} 
+                          className="inline-flex items-center justify-center px-3 py-2 font-medium text-slim rounded-md text-white hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out"
+                      >
+                          Log in
+                      </Link>
+                  </div>
+        </div>
+       
+      </div>
+
+      {/* Mobile menu */}
+      {isOpen && (
+        <div className="md:hidden">
+          
+           <div className="px-2 pt-2 pb-3 sm:px-3">
+                      <ul className="px-2 pt-2 pb-3 sm:px-3">
+                          <li>
+                              <NavLink
+                              to="/"
+                                  className={({isActive}) =>
+                                    `${isActive? 'text-orange-700':'text-grey-700'} block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium`
+                                    
+                                  }
+                              >
+                                  Home
+                              </NavLink>
+                          </li>
+                          <li>
+                              <NavLink
+                              to='/PracticeJS'
+                                  className={({isActive}) =>
+                                    `${isActive? "text-orange-700":"text-grey-700"} block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium`
+                                  }
+                              >
+                                 PracticeJS
+                              </NavLink>
+                          </li>
+                          <li>
+                          <Link
+                          to="#"
+                          onClick={toggleMenu} 
+                          className=" inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out"
+                      >
+                          Log in
+                      </Link>
+                          </li>
+                      </ul>
+                  </div>
+        </div>
+      )}
+    </nav>
   );
+
+
+
+
 }
+
+
 

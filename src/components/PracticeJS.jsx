@@ -1,10 +1,20 @@
 import React from 'react'
 
 function PracticeJS() {
+
+
+
   return (
-    <div>
-      practiceJS page
-    </div>
+    <>
+      <div  className='flex '>
+        <div className='w-full h-full'>
+             
+        </div>
+        <div className='w-full '>
+             
+        </div>
+      </div>
+    </>
   )
 }
 
