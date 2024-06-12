@@ -1,23 +1,31 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+// import App from './App.jsx'
 import './index.css'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 import Layout from './Layout.jsx'
 import Home from './components/Home.jsx'
 import PracticeJS from './components/PracticeJS.jsx'
+// import Code from '../Code_Editor/Code'
+import Data from './Code_Editor/Data.jsx'
+
+// import Editor from './CodeEditor/Editor'
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={ <Layout/> }>
       <Route  path='' element={ <Home/> } />
       <Route  path='PracticeJS' element={ <PracticeJS/> } />
+      <Route  path='PracticeJS/Code' element={ <Data/> } />
+      
     </Route>
   )
 )
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  
+  <>
     <RouterProvider router={router}/>
-  </React.StrictMode>,
-)
+  </>
+);

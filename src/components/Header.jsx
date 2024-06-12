@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { RxCross2, RxHamburgerMenu } from 'react-icons/rx';
 import {Link, NavLink} from 'react-router-dom'
 
+import Typography from '@mui/material/Typography';
+
 export default function Header() {
   
   const [isOpen, setIsOpen] = useState(false);
@@ -10,17 +12,12 @@ export default function Header() {
   };
 
   return (
-    <nav className="bg-gray-800">
-      <div className="max-w-7xl mx-auto px-4 justify-between">
-        <div className="flex justify-between items-center h-16">
+    <nav className="bg-slate-800">
+      
+        <div className="flex justify-between items-center h-9 max-w-7xl mx-auto px-1 ">
           {/* Left side logo */}
-          <div className="flex-shrink-0 flex items-center">
-            <img className="h-8 w-auto" src="/logo.png" alt="Logo" />
-          </div>
-
-          {/* Center links */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex flex-row-reverse justify-between items-baseline space-x-4">
+         <div className="hidden md:block">
+            <div className="ml-3 flex flex-row-reverse justify-between items-baseline space-x-4">
               <div
                       className=" justify-between items-center w-full lg:flex md:w-auto md:order-1"
                       id="mobile-menu-2"
@@ -30,7 +27,7 @@ export default function Header() {
                               <NavLink
                               to="/"
                                   className={({isActive}) =>  
-                                    `${isActive? 'text-orange-700':'text-grey-700'} text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`
+                                    `${isActive? 'text-white':'text-grey-700'} text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`
                                     
                                   }
                               >
@@ -41,7 +38,7 @@ export default function Header() {
                               <NavLink
                               to='/PracticeJS'
                                   className={({isActive}) =>
-                                    `${isActive? "text-orange-700":"text-grey-700"} text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`
+                                    `${isActive? "text-white":"text-grey-700"} text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`
                                   }
                               >
                                  PracticeJS
@@ -52,6 +49,15 @@ export default function Header() {
                   
             </div>
           </div>
+          {/* Center links */}
+          <div className="flex-shrink-0 flex items-center justify-start">
+            {/* <img className="h-8 w-auto" src="/logo.png" alt="Logo" /> */}
+            <Typography variant="h6" noWrap component="div" className='text-white'>
+                       JS_INFINITY_LAB
+          </Typography>
+          </div>
+         {/* ? */}
+          
 
           {/* Right side login/signup and hamburger menu */}
           <div className="-mr-2 flex items-center md:hidden">
@@ -72,7 +78,7 @@ export default function Header() {
                   </div>
         </div>
        
-      </div>
+      
 
       {/* Mobile menu */}
       {isOpen && (

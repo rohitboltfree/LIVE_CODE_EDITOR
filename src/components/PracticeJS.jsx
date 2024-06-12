@@ -1,19 +1,30 @@
-import React from 'react'
+import React, { createContext, useState } from 'react'
+// import Code from '../Code_Editor/Code';
+import Data from '../Code_Editor/Data';
+import Result from '../Code_Editor/Result';
+import DataProvider from '../Context/DataProvider'
+
+export const EditorContext = createContext(null);
 
 function PracticeJS() {
-
+  const [html, setHtml] = useState('<h1>Hello</h1>');
+  const [css, setCss]= useState(''); 
+  const [js, setJs]= useState(''); 
 
 
   return (
     <>
-      <div  className='flex '>
-        <div className='w-full h-full'>
-             
-        </div>
-        <div className='w-full '>
-             
-        </div>
-      </div>
+      {/* <DataProvider> */}
+      <EditorContext.Provider value={{
+        html,setHtml,
+        css,setCss,
+        js,setJs
+      }}>
+
+          <Data/>
+          <Result/>
+      </EditorContext.Provider>
+      {/* </DataProvider> */}
     </>
   )
 }
