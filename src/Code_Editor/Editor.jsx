@@ -43,6 +43,7 @@ function Editor({ heading, icon, color, value, onChange }) {
 
   const handleChange = (editor, data, value) => {
     console.log(value,data)
+    console.log("Editor",editor);
     onChange(value);
   }
 

@@ -1,18 +1,32 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { RxCross2, RxHamburgerMenu } from 'react-icons/rx';
 import {Link, NavLink} from 'react-router-dom'
 
 import Typography from '@mui/material/Typography';
+import { Modal } from '@mui/material';
+import Auth from './auth/Auth';
 
 export default function Header() {
   
   const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   return (
     <nav className="bg-slate-800">
+        <Modal
+        open={open}
+        onClose={()=>{
+          setOpen(false);
+        }}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Auth/>
+      </Modal>
       
         <div className="flex justify-between items-center h-9 max-w-7xl mx-auto px-1 ">
           {/* Left side logo */}
@@ -70,7 +84,9 @@ export default function Header() {
           <div className='hidden md:block justify-center justify-items-end'> 
                   <Link
                           to="#"
-                          onClick={toggleMenu} 
+                          onClick={()=>{
+                            setOpen(true)
+                          }} 
                           className="inline-flex items-center justify-center px-3 py-2 font-medium text-slim rounded-md text-white hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out"
                       >
                           Log in

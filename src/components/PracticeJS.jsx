@@ -1,8 +1,8 @@
-import React, { createContext, useState } from 'react'
+import { createContext, useState } from 'react'
 // import Code from '../Code_Editor/Code';
 import Data from '../Code_Editor/Data';
 import Result from '../Code_Editor/Result';
-import DataProvider from '../Context/DataProvider'
+// import DataProvider from '../Context/DataProvider'
 
 export const EditorContext = createContext(null);
 
