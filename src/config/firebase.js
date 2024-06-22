@@ -17,6 +17,8 @@ import {
   collection,
   addDoc,
   where,
+  setDoc,
+  doc,
 } from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -98,6 +100,83 @@ const sendPasswordReset = async (email) => {
 const logout = () => {
   signOut(auth);
 };
+
+ // store the html css js code in the database associated to a user
+  // const saveCode = async (html, css, js) => {
+  //   if (!auth.currentUser) {
+  //     throw new Error("You must be logged in to save your code");
+  //   }
+  //   try {
+  //     await addDoc(collection(db, "users"), {
+  //       uid: auth.currentUser.uid,
+  //       html,
+  //       css,
+  //       js,
+  //     });
+  //     alert("Code saved successfully");
+  //   } catch (err) {
+  //     console.error(err);
+  //     alert("Error saving code");
+  //   }
+  // }
+ // store the html css js code in the database with table code associated to a user and if a save again then it will update the code in the database
+  const saveCode = async (html, css, js,id) => {
+    if (!auth.currentUser) {
+      throw new Error("You must be logged in to save your code");
+    }
+    try {
+      const resp =  await setDoc(doc(db, "code", id), {
+        uid: auth.currentUser.uid,
+        html,
+        css,
+        js,
+      });
+      console.log(resp);
+      alert("Code saved successfully");
+    } catch (err) {
+      console.error(err);
+      alert("Error saving code");
+    }
+  };
+
+  // create a new code document
+  const createCode = async (html, css, js) => {
+    if (!auth.currentUser) {
+      throw new Error("You must be logged in to save your code");
+    }
+    try {
+      const resp = await addDoc(collection(db, "code"), {
+        uid: auth.currentUser.uid,
+        html,
+        css,
+        js,
+      });
+      return resp.id;
+    } catch (err) {
+      console.error(err);
+      alert("Error saving code");
+    }
+  }
+
+  const getCodeById = async (id) => {
+    const q = query(collection(db, "code"), where("uid", "==", id));
+    const docs = await getDocs(q);
+    return docs.docs.map((doc) => doc.data());
+  }
+
+  const getAllCodes = async () => {
+    const q = query(collection(db, "code"));
+    const docs = await getDocs(q);
+    console.log(docs.docs)
+    return docs.docs.map((doc) => {
+      return {
+        id: doc.id,
+        ...doc.data()
+      }
+    });
+  
+  }
+
 export {
   auth,
   db,
@@ -105,5 +184,9 @@ export {
   logInWithEmailAndPassword,
   registerWithEmailAndPassword,
   sendPasswordReset,
+  saveCode,
+  createCode,
+  getAllCodes,
+  getCodeById,
   logout,
 };

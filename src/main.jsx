@@ -16,9 +16,10 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={ <Layout/> }>
       <Route  path='' element={ <Home/> } />
-      <Route  path='PracticeJS' element={ <PracticeJS/> } />
+      <Route  path='playground' element={ <PracticeJS/> } >
+        <Route  path=':id' element={ <PracticeJS/>  } />
+      </Route>
       <Route  path='PracticeJS/Code' element={ <Data/> } />
-      
     </Route>
   )
 )
