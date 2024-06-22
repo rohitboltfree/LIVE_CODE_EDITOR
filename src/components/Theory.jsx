@@ -161,7 +161,7 @@ function Theory() {
         // transform: `${!toggle? 'translateX(-100%)' : 'translateX(0)'}`,
         width: `${!toggle? '0' : '15rem'}`
       }}
-      className="left border w-60 h-full transition-all overflow-y-scroll">
+      className="left border w-60 h-full transition-all overflow-y-scroll border-y-8">
         <div className='flex flex-col'>
 
         {
