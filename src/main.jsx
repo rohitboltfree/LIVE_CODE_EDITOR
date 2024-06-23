@@ -9,11 +9,16 @@ import PracticeJS from './components/PracticeJS.jsx'
 // import Code from '../Code_Editor/Code'
 import Data from './Code_Editor/Data.jsx'
 import Questions from './components/Questions.jsx'
+import Notes from './components/notes/Notes.jsx'
+
+// import Editor from './CodeEditor/Editor'
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={ <Layout/> }>
       <Route  path='' element={ <Home/> } />
+      <Route  path='notes' element={ <Notes/> } />
       <Route  path='playground' element={ <PracticeJS/> } >
         <Route  path=':id' element={ <PracticeJS/>  } />
       </Route>
