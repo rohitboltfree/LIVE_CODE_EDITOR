@@ -99,6 +99,16 @@ export default function Header() {
                     Playground
                   </NavLink >
                 </li>
+                <li>
+                  <NavLink
+                    to='/notes'
+                    className={({ isActive }) =>
+                      `${isActive ? "text-white" : "text-grey-700"} text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`
+                    }
+                  >
+                    Notes
+                  </NavLink >
+                </li>
               </ul>
             </div>
 
