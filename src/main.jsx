@@ -8,13 +8,7 @@ import Home from './components/Home.jsx'
 import PracticeJS from './components/PracticeJS.jsx'
 // import Code from '../Code_Editor/Code'
 import Data from './Code_Editor/Data.jsx'
-import Theory from './components/Theory.jsx'
 import Questions from './components/Questions.jsx'
-import Html_notes from './components/TheoryNotes/Html_notes.jsx'
-import Css from './components/TheoryNotes/Css.jsx'
-import Javascript from './components/TheoryNotes/Javascript.jsx'
-
-
 
 const router = createBrowserRouter(
   createRoutesFromElements(
