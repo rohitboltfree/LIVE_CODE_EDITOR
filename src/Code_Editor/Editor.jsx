@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useRef, useEffect } from 'react';
 import { Box, styled } from '@mui/material';
 import { Controlled as ControlledEditor } from 'react-codemirror2'
 import 'codemirror/lib/codemirror.css';
@@ -8,7 +7,6 @@ import 'codemirror/mode/xml/xml';
 import 'codemirror/mode/css/css';
 import 'codemirror/mode/javascript/javascript';
 import CloseIcon from '@mui/icons-material/Close';
-import { TbBackground } from 'react-icons/tb';
 
 const Container = styled(Box)`
       flex-grow:1;
@@ -34,24 +32,17 @@ const Header = styled(Box)`
     align-item: center;
 `
 
-
-
-
 function Editor({ heading, icon, color, value, onChange }) {
 
-  const [open , setOpen] = useState(true);
+  const [open, setOpen] = useState(true);
 
   const handleChange = (editor, data, value) => {
-    console.log(value,data)
     onChange(value);
   }
 
-
-
-
   return (
     <>
-      <Container style={open ? null : {flexGrow :0 }}>
+      <Container style={open ? null : { flexGrow: 0 }}>
         <Header>
           <Heading>
             <Box component="span"
@@ -62,22 +53,23 @@ function Editor({ heading, icon, color, value, onChange }) {
             >{icon}</Box>
             {heading}
           </Heading>
-          <CloseIcon 
-              fontSize='small'
-              style={{alignSelf:'center'}}
-               onClick={()=> setOpen(prevstate => !prevstate)}
-                />
+          <CloseIcon
+            fontSize='small'
+            style={{ alignSelf: 'center' }}
+            onClick={() => setOpen(prevstate => !prevstate)}
+          />
         </Header>
-        <ControlledEditor 
-            className='controlled-editor flex-1 overflow-y-auto'
-            value={value}
-            onBeforeChange={handleChange}
-            options={{
-              theme:'material',
-              lineNumbers:true
-            }}
-            />
-        </Container>
+        <ControlledEditor
+          className='controlled-editor flex-1 overflow-y-auto'
+          value={value}
+          onBeforeChange={handleChange}
+          options={{
+            theme: 'material',
+            lineNumbers: true,
+            mode: 'markdown'
+          }}
+        />
+      </Container>
     </>
   )
 }
