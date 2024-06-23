@@ -5,6 +5,7 @@ import Result from '../Code_Editor/Result';
 import { getAllCodes } from '../config/firebase';
 import { Button } from '@mui/material';
 import { Link, useParams } from 'react-router-dom';
+import { useUser } from '../Context/User';
 // import DataProvider from '../Context/DataProvider'
 
 export const EditorContext = createContext(null);
@@ -13,6 +14,8 @@ function PracticeJS() {
   const { setHtml, setCss, setJs } = useContext(EditorContext);
   const [files, setFiles] = useState([]);
   const params = useParams();
+  const { user } = useUser();
+
   useEffect(() => {
     (async () => {
       const data = await getAllCodes();
@@ -35,7 +38,7 @@ function PracticeJS() {
       {/* <DataProvider> */}
       {/* create a folder  */}
       {
-        files.map((file) => {
+        user?.userDetail && files.map((file) => {
           return (
             <Link to={`/playground/${file.id}`}>
               <Button className='bg-gray-400' key={file.id}>

@@ -7,7 +7,7 @@ import { Avatar, Button, Modal, Popover } from '@mui/material';
 import Auth from './auth/Auth';
 import { useUser } from '../Context/User';
 import { EditorContext } from './PracticeJS';
-import { createCode, getAllCodes, getCodeById, saveCode } from '../config/firebase';
+import { auth, createCode, getAllCodes, getCodeById, logout, saveCode } from '../config/firebase';
 
 export default function Header() {
 
@@ -26,16 +26,11 @@ export default function Header() {
 
   useEffect(() => {
     (async () => {
-      const data = await getAllCodes();
-      if (data.length > 0) {
-        setUser({
-          ...user,
-          currentFile: data[data.length - 1],
-          files: data
-        })
-      }
+     
     })()
   }, []);
+
+  console.log('user', user)
 
   const handleSave = async () => {
     //  only update the existing file
@@ -48,7 +43,7 @@ export default function Header() {
       setUser({
         ...user,
         currentFile: data[data.length - 1],
-        files: data
+        files: data,
       })
       navigate(`/playground/${id}`);
     }
@@ -87,21 +82,22 @@ export default function Header() {
                     Home
                   </NavLink>
                 </li>
-                <li>
-                  <Button
-                    onClick={() => {
-                      if (user && user.currentFile) {
-                        navigate(`/playground/${user?.currentFile?.id}`)
-                      } else {
-                        navigate('/playground')
-                      }
-                    }}
+                <li
+                  onClick={() => {
+                    if (user?.userDetail && user.currentFile) {
+                      navigate(`/playground/${user?.currentFile?.id}`)
+                    } else {
+                      navigate('/playground')
+                    }
+                  }}
+                >
+                  <NavLink
                     className={({ isActive }) =>
                       `${isActive ? "text-white" : "text-grey-700"} text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`
                     }
                   >
                     Playground
-                  </Button>
+                  </NavLink >
                 </li>
               </ul>
             </div>
@@ -128,7 +124,7 @@ export default function Header() {
         </div>
         <div className='hidden md:block space-x-3'>
           {
-            location.pathname.includes('/playground') && (
+            (user?.userDetail)  && location.pathname.includes('/playground/') && (
               <Button
                 onClick={handleSave}
                 variant='contained'>
@@ -137,7 +133,7 @@ export default function Header() {
             )
           }
           {
-            location.pathname.includes('/playground/') && (
+            (user?.userDetail) && location.pathname.includes('/playground/') && (
               <Button
                 onClick={() => {
                   setUser({
@@ -162,11 +158,30 @@ export default function Header() {
             }}
             className="inline-flex items-center justify-center px-3 py-2 font-medium text-slim rounded-md text-white hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out"
           >
-            {user ? <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            {user?.userDetail ? <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
               : 'Log in'}
           </Link>
 
-
+          {
+            user?.userDetail && (
+              <button className="logout">
+                <Link
+                  to="#"
+                  onClick={() => {
+                    logout();
+                    setUser(null);
+                    setHtml('');
+                    setCss('');
+                    setJs('');
+                    navigate('/')
+                  }}
+                  className="inline-flex items-center justify-center px-3 py-2 font-medium text-slim rounded-md text-white hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out"
+                >
+                  Logout
+                </Link>
+              </button>
+            )
+          }
 
         </div>
       </div>
