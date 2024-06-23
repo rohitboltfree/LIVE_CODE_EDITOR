@@ -10,7 +10,10 @@ import PracticeJS from './components/PracticeJS.jsx'
 import Data from './Code_Editor/Data.jsx'
 import Theory from './components/Theory.jsx'
 import Questions from './components/Questions.jsx'
-// import Editor from './CodeEditor/Editor'
+import Html_notes from './components/TheoryNotes/Html_notes.jsx'
+import Css from './components/TheoryNotes/Css.jsx'
+import Javascript from './components/TheoryNotes/Javascript.jsx'
+
 
 
 const router = createBrowserRouter(
@@ -20,6 +23,9 @@ const router = createBrowserRouter(
       <Route  path='PracticeJS' element={ <PracticeJS/> } />
       <Route  path='PracticeJS/Code' element={ <Data/> } />
       <Route  path='Theory' element={ <Theory/> } />
+      {/* <Route  path='Theory/Html_notes' element={ <Html_notes/> } />
+      <Route  path='Theory/Css' element={ <Css/> } />
+      <Route  path='Theory/Javascript' element={ <Javascript/> } /> */}
       <Route  path='Questions' element={ <Questions/> } />
     </Route>
   )

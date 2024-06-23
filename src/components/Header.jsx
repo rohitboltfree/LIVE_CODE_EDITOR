@@ -14,6 +14,7 @@ export default function Header() {
   return (
     <nav className="bg-slate-800">
 
+       {/* desktop menu */}
       <div className="flex justify-between items-center h-9 max-w-7xl mx-auto px-1 ">
         {/* Left side logo */}
         <div className="flex-shrink-0 flex items-center justify-start">
