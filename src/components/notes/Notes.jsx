@@ -63,7 +63,7 @@ const Notes = () => {
 
 
     return (
-        <div className="flex h-fit bg-gray-100">
+        <div className="flex h-fit bg-gray-100 flex-1">
             <div
                 style={{
                     // display: toggle ? 'block' : 'none',
@@ -111,7 +111,7 @@ const Notes = () => {
                 
                 >
                     {topic && <Document>
-                        <Page size="A4" style={styles.body} className=" overscroll-y-auto flex flex-col justify-center items-center h- overflow-y-scroll max-w-3xl min-w-96 mx-auto py-6 px-1 bg-white  text-3xl drop-shadow-lg">
+                        <Page size="A4" style={styles.body} className=" mb-12 overscroll-y-auto flex flex-col justify-center items-center h- overflow-y-scroll max-w-3xl min-w-96 mx-auto py-6 px-1 bg-white  text-3xl drop-shadow-lg">
                             <Text style={styles.title} className="text-[#8F5272] font-bold" break>{topic.title}</Text>
                             <br />
                             <img
