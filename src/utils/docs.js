@@ -33,13 +33,13 @@ export const myDocs = [
     {
         id: 2,
         title: 'CSS',
-        img: 'https://static.javatpoint.com/htmlpages/images/html-tutorial.png',
         paragraph: 'CSS is the language we use to style an HTML document. CSS describes how HTML elements should be displayed.',
         subHeading: 'What is CSS?',
         topics: [
             {
                 id: 1,
                 title: 'CSS Introduction',
+                img: 'https://static.javatpoint.com/csspages/images/css-tutorial.png',
                 paragraph: ['CSS stands for Cascading Style Sheets. CSS describes how HTML elements are to be displayed on screen, paper, or in other media. CSS saves a lot of work. It can control the layout of multiple web pages all at once. External stylesheets are stored in CSS files.'],
             },
             {
