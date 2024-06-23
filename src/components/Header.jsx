@@ -124,7 +124,7 @@ export default function Header() {
         </div>
         <div className='hidden md:block space-x-3'>
           {
-            (user?.userDetail)  && location.pathname.includes('/playground/') && (
+            (user?.userDetail)  && location.pathname.includes('/playground') && (
               <Button
                 onClick={handleSave}
                 variant='contained'>
