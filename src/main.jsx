@@ -24,7 +24,6 @@ const router = createBrowserRouter(
         <Route  path=':id' element={ <PracticeJS/>  } />
       </Route>
       <Route  path='PracticeJS/Code' element={ <Data/> } />
-      <Route  path='Theory' element={ <Theory/> } />
       {/* <Route  path='Theory/Html_notes' element={ <Html_notes/> } />
       <Route  path='Theory/Css' element={ <Css/> } />
       <Route  path='Theory/Javascript' element={ <Javascript/> } /> */}
