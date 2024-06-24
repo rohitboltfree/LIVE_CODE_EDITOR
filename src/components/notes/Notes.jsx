@@ -7,6 +7,8 @@ import { myDocs } from '../../utils/docs';
 import { Document, Image, Page, StyleSheet, Text, View } from '@react-pdf/renderer';
 
 
+
+
 const styles = StyleSheet.create({
     body: {
         paddingTop: 35,
@@ -31,6 +33,7 @@ const styles = StyleSheet.create({
     text: {
         margin: 12,
         fontSize: 14,
+        fontWeight:28,
         textAlign: 'justify',
         fontFamily: 'Times-Roman'
     },
@@ -75,7 +78,7 @@ const Notes = () => {
                 {myDocs.map(doc => {
                     return (
                         <>
-                            <Accordion>
+                            <Accordion >
                                 <AccordionSummary
                                     //   expandIcon={<ArrowDownwardIcon />}
                                     aria-controls="panel1-content"
@@ -83,15 +86,16 @@ const Notes = () => {
                                 >
                                     <Typography>{doc.title}</Typography>
                                 </AccordionSummary>
-                                <AccordionDetails>
+                                <AccordionDetails >
                                     {doc.topics?.length > 0 && doc.topics.map(topic => {
                                         return (
-                                            <div>
+                                            <div >
                                                 <button
+                    
                                                     onClick={() => {
                                                         setTopic(topic)
                                                     }}
-                                                    className='border w-full text-left my-2 p-2'>{topic.title}</button>
+                                                    className='hover:bg-slate-600 hover:text-white border w-full text-left my-2 p-2'>{topic.title}</button>
                                             </div>
                                         )
                                     })}
@@ -123,7 +127,7 @@ const Notes = () => {
                             {
                                 topic.paragraph.map((para, index) => {
                                     return (
-                                        <Text key={index} style={styles.text} className="bg-white text-3xl " break>{para}</Text>
+                                        <Text key={index} style={styles.text} className="bg-white text-3xl text-start " break>{para}</Text>
                                     )
                                 })
                             }

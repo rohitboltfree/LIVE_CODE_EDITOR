@@ -8,6 +8,7 @@ import Auth from './auth/Auth';
 import { useUser } from '../Context/User';
 import { EditorContext } from './PracticeJS';
 import { auth, createCode, getAllCodes, getCodeById, logout, saveCode } from '../config/firebase';
+import logo from './logo.png';
 
 export default function Header() {
 
@@ -50,7 +51,8 @@ export default function Header() {
   }
 
   return (
-    <nav className="bg-slate-800">
+    
+    <nav className="bg-slate-800 h-10">
       <Modal
         open={open}
         onClose={() => {
@@ -64,6 +66,16 @@ export default function Header() {
 
       <div className="flex justify-between items-center max-w-7xl mx-auto px-1 ">
         {/* Left side logo */}
+        
+        <div className="flex-shrink-0 flex items-center justify-start">
+        <img className='h-6 w-full' src={logo} alt="Logo" />;
+          {/* <Typography variant="h6" noWrap component="div" className='text-white'>
+            JS_INFINITY_LAB
+          </Typography> */}
+          
+        </div>
+        
+        {/* Center links */}
         <div className="hidden md:block">
           <div className="ml-3 flex flex-row-reverse justify-between items-baseline space-x-4">
             <div
@@ -114,13 +126,6 @@ export default function Header() {
 
           </div>
         </div>
-        {/* Center links */}
-        <div className="flex-shrink-0 flex items-center justify-start">
-          {/* <img className="h-8 w-auto" src="/logo.png" alt="Logo" /> */}
-          <Typography variant="h6" noWrap component="div" className='text-white'>
-            JS_INFINITY_LAB
-          </Typography>
-        </div>
         {/* ? */}
 
 
@@ -136,6 +141,7 @@ export default function Header() {
           {
             (user?.userDetail)  && location.pathname.includes('/playground') && (
               <Button
+              sx={{ width: 28, height: 28 ,marginBottom: 1}}
                 onClick={handleSave}
                 variant='contained'>
                 Save
@@ -145,6 +151,7 @@ export default function Header() {
           {
             (user?.userDetail) && location.pathname.includes('/playground/') && (
               <Button
+              sx={{ width: 28, height: 28,marginBottom: 1 }}
                 onClick={() => {
                   setUser({
                     ...user,
@@ -168,7 +175,7 @@ export default function Header() {
             }}
             className="inline-flex items-center justify-center px-3 py-2 font-medium text-slim rounded-md text-white hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out"
           >
-            {user?.userDetail ? <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            {user?.userDetail ? <Avatar sx={{ width: 28, height: 28 }} alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
               : 'Log in'}
           </Link>
 
