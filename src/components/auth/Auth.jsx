@@ -1,23 +1,26 @@
 import { useRef } from 'react'
 import { auth, logInWithEmailAndPassword, registerWithEmailAndPassword, signInWithGoogle } from '../../config/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 const Auth = () => {
     const emailRef = useRef();
     const passwordRef = useRef();
     const nameRef = useRef();
-    const register = (e) => {
+    const navigate = useNavigate();
+    
+    const register = async(e) => {
         if(emailRef.current.value === "" || passwordRef.current.value === "") return alert("Please fill in the fields");
         e.preventDefault();
-        registerWithEmailAndPassword(
+        const resp = await registerWithEmailAndPassword(
             "aman",
             emailRef.current.value,
             passwordRef.current.value
-        ).then((authUser) => {
-            console.log(authUser);
-        }).catch((error) => {
-            console.log(error);
-        });
+        );
+        if(resp) {
+          window.location.href = '/'
+        }
+        console.log(resp);
     }
     
   return (

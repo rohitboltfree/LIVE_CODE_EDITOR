@@ -30,6 +30,30 @@ export const myDocs = [
         ],
       },
       {
+        title: 'CSS',
+        paragraph: 'CSS is the language we use to style an HTML document. CSS describes how HTML elements should be displayed.',
+        subHeading: 'What is CSS?',
+        topics: [
+            {
+                id: 1,
+                title: 'CSS Introduction',
+                img: 'https://static.javatpoint.com/csspages/images/css-tutorial.png',
+                paragraph: ['CSS stands for Cascading Style Sheets. CSS describes how HTML elements are to be displayed on screen, paper, or in other media. CSS saves a lot of work. It can control the layout of multiple web pages all at once. External stylesheets are stored in CSS files.'],
+            },
+            {
+                id: 2,
+                title: 'CSS Syntax',
+                paragraph: ['A CSS rule-set consists of a selector and a declaration block: The selector points to the HTML element you want to style. The declaration block contains one or more declarations separated by semicolons. Each declaration includes a CSS property name and a value, separated by a colon.'],
+            },
+            {
+                id: 3,
+                title: 'CSS Colors',
+                paragraph: ['Colors are specified using predefined color names, RGB, HEX, HSL, RGBA, HSLA values.'],
+            }
+        ]
+
+    },
+    {
         id: 3,
         title: "HTML Elements",
         paragraph: [
