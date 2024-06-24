@@ -1,3 +1,5 @@
+import { ClassNames } from "@emotion/react";
+
 export const myDocs = [
   {
     id: 1,
@@ -9,7 +11,9 @@ export const myDocs = [
       {
         id: 1,
         title: "HTML Introduction",
-        img: "https://static.javatpoint.com/htmlpages/images/html-tutorial.png",
+        img : {
+          src:"https://static.javatpoint.com/htmlpages/images/html-tutorial.png",
+        },
         paragraph: [
           "HTML tutorial or HTML 5 tutorial provides basic and advanced concepts of HTML. Our HTML tutorial is developed for beginners and professionals. In our tutorial, every topic is given step-by-step so that you can learn it in a very easy way. If you are new in learning HTML, then you can learn HTML from basic to a professional level and after learning HTML with CSS and JavaScript you will be able to create your own interactive and dynamic website. But Now We will focus on HTML only in this tutorial.",
           "The major points of HTML are given below:<br/> HTML stands for HyperText Markup Languagee.HTML is used to create web pages and web applications.HTML is widely used language on the web.We can create a static website by HTML only.Technically, HTML is a Markup language rather than a programming language.",
@@ -19,7 +23,11 @@ export const myDocs = [
       {
         id: 2,
         title: "HTML Tags",
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzwSGh1Utc0R2kyYYPNmOvcjqd0oiIkRqRdA&s",
+
+        img : {
+          src:'https://miro.medium.com/v2/resize:fit:740/0*m_SXOcz9tukwk51X',
+          size:'370',
+        },
         paragraph: [
           "HTML tags are like keywords which defines that how web browser will format and display the content. With the help of tags, a web browser can distinguish between an HTML content and a simple content. HTML tags contain three main parts: opening tag, content and closing tag. But some HTML tags are unclosed tags.",
           "When a web browser reads an HTML document, browser reads it from top to bottom and left to right. HTML tags are used to create HTML documents and render their properties. Each HTML tags have different properties.",
@@ -29,30 +37,7 @@ export const myDocs = [
           "> If you have used an open tag <tag>, then you must use a close tag </tag> (except some tags)",
         ],
       },
-      {
-        title: 'CSS',
-        paragraph: 'CSS is the language we use to style an HTML document. CSS describes how HTML elements should be displayed.',
-        subHeading: 'What is CSS?',
-        topics: [
-            {
-                id: 1,
-                title: 'CSS Introduction',
-                img: 'https://static.javatpoint.com/csspages/images/css-tutorial.png',
-                paragraph: ['CSS stands for Cascading Style Sheets. CSS describes how HTML elements are to be displayed on screen, paper, or in other media. CSS saves a lot of work. It can control the layout of multiple web pages all at once. External stylesheets are stored in CSS files.'],
-            },
-            {
-                id: 2,
-                title: 'CSS Syntax',
-                paragraph: ['A CSS rule-set consists of a selector and a declaration block: The selector points to the HTML element you want to style. The declaration block contains one or more declarations separated by semicolons. Each declaration includes a CSS property name and a value, separated by a colon.'],
-            },
-            {
-                id: 3,
-                title: 'CSS Colors',
-                paragraph: ['Colors are specified using predefined color names, RGB, HEX, HSL, RGBA, HSLA values.'],
-            }
-        ]
-
-    },
+ 
     {
         id: 3,
         title: "HTML Elements",
@@ -73,8 +58,6 @@ export const myDocs = [
     id: 2,
     title: "CSS",
     img: "https://static.javatpoint.com/htmlpages/images/html-tutorial.png",
-    paragraph:
-      "CSS is the language we use to style an HTML document. CSS describes how HTML elements should be displayed.",
     subHeading: "What is CSS?",
     topics: [
       {

@@ -119,9 +119,11 @@ const Notes = () => {
                             <Text style={styles.title} className="text-[#8F5272] font-bold" break>{topic.title}</Text>
                             <br />
                             <img
-                                className   ="w-24 text-left"
+                                className   ="text-left"
                                 style={styles.image}
-                                src={topic.img}
+                                src={topic?.img?.src}
+                                height={topic?.img?.size} 
+                                width={topic?.img?.size  ?? '96px'} 
                             />
                             {/* <Text style={styles.text} className="py-6  bg-white text-3xl "> */}
                             {
