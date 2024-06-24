@@ -157,6 +157,7 @@ export default function Header() {
         {
             (user?.userDetail)  && location.pathname.includes('/playground/') && (
               <Button
+              sx={{ width:150, height: 28 ,marginBottom: 1}}
                 onClick={handleEditFileName}
                 variant='contained'>
                 Edit File Name
