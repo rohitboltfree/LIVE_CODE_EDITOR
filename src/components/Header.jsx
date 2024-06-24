@@ -7,7 +7,7 @@ import { Avatar, Button, Modal, Popover } from '@mui/material';
 import Auth from './auth/Auth';
 import { useUser } from '../Context/User';
 import { EditorContext } from './PracticeJS';
-import { auth, createCode, getAllCodes, getCodeById, logout, saveCode } from '../config/firebase';
+import { addFileName, auth, createCode, getAllCodes, getCodeById, logout, saveCode } from '../config/firebase';
 
 export default function Header() {
 
@@ -46,6 +46,22 @@ export default function Header() {
         files: data,
       })
       navigate(`/playground/${id}`);
+    }
+  }
+
+  const handleEditFileName = async () => {
+    const name = prompt('Enter new file name');
+    const id = params.id;
+    if (name && id) {
+      const res = await addFileName(id,name);
+      console.log('id', res)
+      // const data = await getAllCodes();
+      // setUser({
+      //   ...user,
+      //   currentFile: data[data.length - 1],
+      //   files: data,
+      // })
+      // navigate(`/playground/${id}`);
     }
   }
 
@@ -133,6 +149,15 @@ export default function Header() {
 
         </div>
         <div className='hidden md:block space-x-3'>
+        {
+            (user?.userDetail)  && location.pathname.includes('/playground/') && (
+              <Button
+                onClick={handleEditFileName}
+                variant='contained'>
+                Edit File Name
+              </Button>
+            )
+          }
           {
             (user?.userDetail)  && location.pathname.includes('/playground') && (
               <Button

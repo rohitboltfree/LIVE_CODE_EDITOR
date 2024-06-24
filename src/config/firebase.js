@@ -159,6 +159,18 @@ const logout = () => {
     }
   }
 
+  // get the document by id and add a fileName to it
+  const addFileName = async (id, fileName) => {
+    try {
+      await setDoc(doc(db, "code", id), {
+        fileName,
+      }, { merge: true });
+    } catch (err) {
+      console.error(err);
+      alert("Error adding file name");
+    }
+  }
+
   const getCodeById = async (id) => {
     const q = query(collection(db, "code"), where("uid", "==", id));
     const docs = await getDocs(q);
@@ -189,5 +201,6 @@ export {
   createCode,
   getAllCodes,
   getCodeById,
+  addFileName,
   logout,
 };

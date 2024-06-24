@@ -34,7 +34,7 @@ function PracticeJS() {
   }, [files, params]);
 
   return (
-    <>
+    <div>
       {/* <DataProvider> */}
       {/* create a folder  */}
       {
@@ -42,7 +42,7 @@ function PracticeJS() {
           return (
             <Link to={`/playground/${file.id}`}>
               <Button className='bg-gray-400' key={file.id}>
-                {file.id}
+                {file.fileName ?? file.id}
               </Button>
             </Link>
           )
@@ -52,7 +52,7 @@ function PracticeJS() {
       <Data />
       <Result />
       {/* </DataProvider> */}
-    </>
+    </div>
   )
 }
 
