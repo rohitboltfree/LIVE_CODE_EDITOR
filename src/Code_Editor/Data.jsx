@@ -25,19 +25,19 @@ function Data() {
     return (
       <Container>
          <Editor 
-            heading="HEAD"
+            heading="HTML"
             icon="<>"
             color="#FF3C41" 
             value={head}
             onChange={setHead} 
             />
-        <Editor 
+        {/* <Editor 
             heading="HTML"
             icon="<>"
             color="#FF3C41" 
             value={html}
             onChange={setHtml} 
-            />
+            /> */}
         <Editor 
              heading="CSS"
              icon="{}"
