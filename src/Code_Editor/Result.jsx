@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, styled } from '@mui/material'
+import { Box, Button, styled } from '@mui/material'
 import { useContext,useEffect,useState } from 'react'
 
 import {EditorContext} from '../components/PracticeJS';
@@ -7,10 +7,11 @@ import {EditorContext} from '../components/PracticeJS';
 function Result() {
 
     const[src, setSrc] = useState('');
-    const{ html,css,js}=useContext(EditorContext);
-
+    const{ html,css,js,head}=useContext(EditorContext);
+    console.log(head)
     const srcCode=`
         <html>
+        <head>${head}</head>
             <body>${html}</body>
             <style>${css}</style>
             <script>${js}</script>
@@ -22,10 +23,16 @@ function Result() {
             setSrc(srcCode);
         },1000)
         return ()=> clearTimeout(timeOut);
-    },[html,css,js])
+    },[html,css,js,head])
 
   return (
     <Box className="flex-1">
+        <Button onClick={()=>{
+            const newTab = window.open();
+            newTab.document.open();
+            newTab.document.write(srcCode);
+            newTab.document.close
+        }}>View in new tab</Button>
         <iframe
             srcDoc={src}
             title='Output'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useContext } from 'react';
 import Editor from './Editor'
-import {Box, styled} from '@mui/material';
+import {Box, Button, styled} from '@mui/material';
 // import { DataContext } from '../Context/DataProvider';
 import { EditorContext } from '../components/PracticeJS';
 import { Height } from '@mui/icons-material';
@@ -19,11 +19,18 @@ const Container = styled(Box)`
 
 function Data() {
 
-    const { html,setHtml,css,setCss,js,setJs } = useContext(EditorContext);
+    const { html,setHtml,css,setCss,js,setJs,setHead,head } = useContext(EditorContext);
     console.log(html)
     
     return (
       <Container>
+         <Editor 
+            heading="HEAD"
+            icon="<>"
+            color="#FF3C41" 
+            value={head}
+            onChange={setHead} 
+            />
         <Editor 
             heading="HTML"
             icon="<>"

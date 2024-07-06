@@ -10,14 +10,16 @@ import { EditorContext } from './components/PracticeJS';
 function Layout() {
   const [html, setHtml] = useState('<h1>Hello</h1>');
   const [css, setCss]= useState(''); 
-  const [js, setJs]= useState(''); 
+  const [js, setJs]= useState('');
+  const [head, setHead]= useState('');
   return (
     <>
     <UserProvider>
     <EditorContext.Provider value={{
         html,setHtml,
         css,setCss,
-        js,setJs
+        js,setJs,
+        head,setHead
       }}>
       
       <Header/>
