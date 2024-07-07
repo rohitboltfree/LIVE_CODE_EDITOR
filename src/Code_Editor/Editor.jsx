@@ -32,7 +32,7 @@ const Header = styled(Box)`
     align-item: center;
 `
 
-function Editor({ heading, icon, color, value, onChange }) {
+function Editor({ heading, icon, color, value, onChange,style }) {
 
   const [open, setOpen] = useState(true);
 
@@ -60,7 +60,7 @@ function Editor({ heading, icon, color, value, onChange }) {
           />
         </Header>
         <ControlledEditor
-          className='controlled-editor flex-1 overflow-y-auto'
+          className={`flex-1 overflow-y-auto h-full ${style}`}
           value={value}
           onBeforeChange={handleChange}
           options={{

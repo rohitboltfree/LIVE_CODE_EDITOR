@@ -137,6 +137,16 @@ export default function Header() {
                     Notes
                   </NavLink >
                 </li>
+                <li>
+                  <NavLink
+                    to='/Test_Skills'
+                    className={({ isActive }) =>
+                      `${isActive ? "text-white" : "text-grey-700"} text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`
+                    }
+                  >
+                    Test_Skills
+                  </NavLink >
+                </li>
               </ul>
             </div>
 
@@ -250,12 +260,22 @@ export default function Header() {
               </li>
               <li>
                 <NavLink
-                  to='/PracticeJS'
+                  to='/notes'
                   className={({ isActive }) =>
                     `${isActive ? "text-orange-700" : "text-grey-700"} block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium`
                   }
                 >
-                  PracticeJS
+                  Notes
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to='/Test_Skills'
+                  className={({ isActive }) =>
+                    `${isActive ? "text-orange-700" : "text-grey-700"} block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium`
+                  }
+                >
+                  Test_Skills
                 </NavLink>
               </li>
               <li>
