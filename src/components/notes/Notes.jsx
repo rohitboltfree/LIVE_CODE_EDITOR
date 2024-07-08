@@ -1,5 +1,5 @@
 import { Button, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -60,10 +60,12 @@ const styles = StyleSheet.create({
 const Notes = () => {
     const [toggle, setToggle] = useState(false)
     const [doc, setDoc] = useState(1);
-
     const [topic, setTopic] = useState(null);
 
-
+    useEffect(()=>{
+        setToggle(topic?.codeExample)
+       setTopic(myDocs[0].topics[0])
+       },[])
 
     return (
         <div className="flex h-fit bg-gray-100 flex-1">
@@ -106,7 +108,7 @@ const Notes = () => {
                     )
                 })}
             </div>
-            <div className="border border-red-500 w-full">
+            <div className="border border-red-500 bg-gray-200  w-full">
                 <div className="toggle">
                     <Button onClick={() => setToggle(!toggle)}>{toggle ? 'Close' : 'Open'}</Button>
                 </div>

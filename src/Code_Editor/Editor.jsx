@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Box, styled } from '@mui/material';
+import React, {useState } from 'react'
+import { Box, styled} from '@mui/material';
 import { Controlled as ControlledEditor } from 'react-codemirror2'
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/material.css';
@@ -34,6 +34,9 @@ const Header = styled(Box)`
 
 function Editor({ heading, icon, color, value, onChange,style }) {
 
+
+
+
   const [open, setOpen] = useState(true);
 
   const handleChange = (editor, data, value) => {
@@ -42,6 +45,7 @@ function Editor({ heading, icon, color, value, onChange,style }) {
 
   return (
     <>
+     
       <Container style={open ? null : { flexGrow: 0 }}>
         <Header>
           <Heading>

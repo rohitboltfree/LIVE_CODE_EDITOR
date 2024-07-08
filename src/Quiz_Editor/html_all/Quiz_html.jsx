@@ -14,7 +14,7 @@ function Quiz_html({codeExample}) {
     <>
       <div className='h-full w-full border-solid  border-gray-900'>
       <Editor
-			heading="HTML"
+			heading="EDITOR"
             icon="<>"
             color="#FF3C41" 
             value={html}

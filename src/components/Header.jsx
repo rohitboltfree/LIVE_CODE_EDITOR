@@ -68,7 +68,7 @@ export default function Header() {
 
   return (
     
-    <nav className="bg-slate-800 h-10">
+    <nav className="bg-slate-800 shadow-lg">
       <Modal
         open={open}
         onClose={() => {
@@ -164,46 +164,6 @@ export default function Header() {
 
         </div>
         <div className='hidden md:block space-x-3'>
-        {
-            (user?.userDetail)  && location.pathname.includes('/playground/') && (
-              <Button
-              sx={{ width:150, height: 28 ,marginBottom: 1}}
-                onClick={handleEditFileName}
-                variant='contained'>
-                Edit File Name
-              </Button>
-            )
-          }
-          {
-            (user?.userDetail)  && location.pathname.includes('/playground') && (
-              <Button
-              sx={{ width: 28, height: 28 ,marginBottom: 1}}
-                onClick={handleSave}
-                variant='contained'>
-                Save
-              </Button>
-            )
-          }
-          {
-            (user?.userDetail) && location.pathname.includes('/playground/') && (
-              <Button
-              sx={{ width: 28, height: 28,marginBottom: 1 }}
-                onClick={() => {
-                  setUser({
-                    ...user,
-                    currentFile: null
-                  })
-                  setHtml('');
-                  setCss('');
-                  setJs('');
-
-                  navigate('/playground')
-                }}
-                variant='contained'>
-                New
-              </Button>
-            )
-          }
           <Link
             to="#"
             onClick={() => {
