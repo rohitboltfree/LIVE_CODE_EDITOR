@@ -20,6 +20,7 @@ import {
   setDoc,
   doc,
 } from "firebase/firestore";
+import toast from "react-hot-toast";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -56,20 +57,30 @@ const signInWithGoogle = async () => {
         email: user.email,
       });
       console.log(resp);
+      toast.success( 'Logged in successfully',{
+        position:'top-right',
+      });
       return resp;
     }
   } catch (err) {
     console.error(err);
-    alert(err.message);
+    toast.error( 'Something went wrong',{
+      position:'top-right',
+    });
   }
 };
 const logInWithEmailAndPassword = async (email, password) => {
   try {
     const res =  await signInWithEmailAndPassword(auth, email, password);
     console.log(res);
+    toast.success( 'Logged in successfully',{
+      position:'top-right',
+    });
 } catch (err) {
     console.error(err);
-    alert(err.message);
+    toast.error( 'Something went wrong',{
+      position:'top-right',
+    });
   }
 };
 const registerWithEmailAndPassword = async (name, email, password) => {
@@ -82,10 +93,15 @@ const registerWithEmailAndPassword = async (name, email, password) => {
       authProvider: "local",
       email,
     });
+    toast.success( 'User registered',{
+      position:'top-right',
+    });
     return resp;
   } catch (err) {
     console.error(err);
-    alert(err.message);
+    toast.error( 'Something went wrong',{
+      position:'top-right',
+    });
   }
 };
 const sendPasswordReset = async (email) => {
@@ -94,12 +110,17 @@ const sendPasswordReset = async (email) => {
     alert("Password reset link sent!");
   } catch (err) {
     console.error(err);
-    alert(err.message);
+    toast.error( 'Something went wrong',{
+      position:'top-right',
+    });
   }
 };
 
-const logout = () => {
-  signOut(auth);
+const logout = async() => {
+  await signOut(auth);
+  toast.success( 'Code saved successfully',{
+    position:'top-right'
+  });
 };
 
  // store the html css js code in the database associated to a user
@@ -133,10 +154,16 @@ const logout = () => {
         js,
       });
       console.log(resp);
-      alert("Code saved successfully");
+      // alert("Code saved successfully");
+      toast.success( 'Code saved successfully',{
+        position:'top-right'
+      });
+
     } catch (err) {
       console.error(err);
-      alert("Error saving code");
+       toast.error( 'Something went wrong',{
+        position:'top-right',
+      });
     }
   };
 
@@ -155,7 +182,9 @@ const logout = () => {
       return resp.id;
     } catch (err) {
       console.error(err);
-      alert("Error saving code");
+      toast.error( 'Something went wrong',{
+        position:'top-right',
+      });
     }
   }
 
@@ -167,7 +196,9 @@ const logout = () => {
       }, { merge: true });
     } catch (err) {
       console.error(err);
-      alert("Error adding file name");
+      toast.error( 'Something went wrong',{
+        position:'top-right',
+      });
     }
   }
 

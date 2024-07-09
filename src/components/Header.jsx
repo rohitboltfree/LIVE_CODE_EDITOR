@@ -1,23 +1,20 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { RxCross2, RxHamburgerMenu } from 'react-icons/rx';
-import { Link, NavLink, useLocation, useNavigate, useParams } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 
-import Typography from '@mui/material/Typography';
-import { Avatar, Button, Modal, Popover } from '@mui/material';
-import Auth from './auth/Auth';
+import { Avatar, Modal } from '@mui/material';
+import { logout } from '../config/firebase';
 import { useUser } from '../Context/User';
-import { EditorContext } from './PracticeJS';
-import { addFileName, auth, createCode, getAllCodes, getCodeById, logout, saveCode } from '../config/firebase';
+import Auth from './auth/Auth';
 import logo from './logo.png';
+import { EditorContext } from './PracticeJS';
 
 export default function Header() {
 
   const [isOpen, setIsOpen] = useState(false);
   const [open, setOpen] = useState(false);
-  const location = useLocation();
   const navigate = useNavigate();
-  const params = useParams();
-  const { html, css, js, setHtml, setCss, setJs } = useContext(EditorContext);
+  const { setHtml, setCss, setJs } = useContext(EditorContext);
 
   const { user, setUser } = useUser();
 
@@ -25,50 +22,11 @@ export default function Header() {
     setIsOpen(!isOpen);
   };
 
-  useEffect(() => {
-    (async () => {
-     
-    })()
-  }, []);
-
   console.log('user', user)
-
-  const handleSave = async () => {
-    //  only update the existing file
-    if (params.id) {
-      await saveCode(html, css, js, params.id);
-    } else {
-      // create a new file
-      const id = await createCode(html, css, js);
-      const data = await getAllCodes();
-      setUser({
-        ...user,
-        currentFile: data[data.length - 1],
-        files: data,
-      })
-      navigate(`/playground/${id}`);
-    }
-  }
-
-  const handleEditFileName = async () => {
-    const name = prompt('Enter new file name');
-    const id = params.id;
-    if (name && id) {
-      const res = await addFileName(id,name);
-      console.log('id', res)
-      // const data = await getAllCodes();
-      // setUser({
-      //   ...user,
-      //   currentFile: data[data.length - 1],
-      //   files: data,
-      // })
-      // navigate(`/playground/${id}`);
-    }
-  }
 
   return (
     
-    <nav className="bg-slate-800 shadow-lg">
+    <nav className="bg-slate-800 shadow-lg p-3 px-8 ">
       <Modal
         open={open}
         onClose={() => {
@@ -139,7 +97,7 @@ export default function Header() {
                 </li>
                 <li>
                   <NavLink
-                    to='/Test_Skills'
+                    to='/test-skill'
                     className={({ isActive }) =>
                       `${isActive ? "text-white" : "text-grey-700"} text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`
                     }
@@ -230,12 +188,12 @@ export default function Header() {
               </li>
               <li>
                 <NavLink
-                  to='/Test_Skills'
+                  to='/test-skill'
                   className={({ isActive }) =>
                     `${isActive ? "text-orange-700" : "text-grey-700"} block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium`
                   }
                 >
-                  Test_Skills
+                  Test Skills
                 </NavLink>
               </li>
               <li>

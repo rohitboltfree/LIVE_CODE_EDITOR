@@ -1,14 +1,13 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react';
 // import Code from '../Code_Editor/Code';
+import { Button } from '@mui/material';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Data from '../Code_Editor/Data';
 import Result from '../Code_Editor/Result';
 import { addFileName, createCode, getAllCodes, saveCode } from '../config/firebase';
-import { Button } from '@mui/material';
-import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useUser } from '../Context/User';
-import File from '../Code_Editor/File';
-// import DataProvider from '../Context/DataProvider'
 import SendIcon from '@mui/icons-material/Send';
+import toast from 'react-hot-toast';
 
 export const EditorContext = createContext(null);
 
@@ -18,7 +17,6 @@ function PracticeJS() {
   const params = useParams();
   const { user, setUser } = useUser();
   const navigate = useNavigate();
-
 
   useEffect(() => {
     (async () => {
@@ -89,6 +87,10 @@ function PracticeJS() {
           setJs('');
 
           navigate('/playground')
+          toast.success('Start writing code.', {
+            position: "top-right",
+            icon: '👏',
+          })
         }}
         
         size='small' variant='outlined'>
@@ -96,12 +98,11 @@ function PracticeJS() {
         </Button>
       </div>
       {
-        user?.userDetail && files.map((file) => {
+        user?.userDetail && files.map((file,id) => {
           return (
-            <Link className='w-full' to={`/playground/${file.fileName}`}>
+            <Link key={id} className='w-full' to={`/playground/${file.fileName}`}>
               <div className='border flex justify-between gap-3 px-3 py-2 rounded-lg'>
                 <span>
-                {/* {file.fileName ?? file.id} */}
                 {
                   file.fileName ? (
                     file.fileName.length > 7 ? file.fileName.slice(0,7) + '...'  : file.fileName
