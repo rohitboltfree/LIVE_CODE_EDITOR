@@ -98,7 +98,7 @@ function PracticeJS() {
       {
         user?.userDetail && files.map((file) => {
           return (
-            <Link className='w-full' to={`/playground/${file.id}`}>
+            <Link className='w-full' to={`/playground/${file.fileName}`}>
               <div className='border flex justify-between gap-3 px-3 py-2 rounded-lg'>
                 <span>
                 {/* {file.fileName ?? file.id} */}

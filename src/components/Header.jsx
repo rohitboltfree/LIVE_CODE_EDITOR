@@ -144,7 +144,7 @@ export default function Header() {
                       `${isActive ? "text-white" : "text-grey-700"} text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`
                     }
                   >
-                    Test_Skills
+                    Test skills
                   </NavLink >
                 </li>
               </ul>
