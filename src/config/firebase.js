@@ -57,29 +57,29 @@ const signInWithGoogle = async () => {
         email: user.email,
       });
       console.log(resp);
-      toast.success( 'Logged in successfully',{
-        position:'top-right',
+      toast.success("Logged in successfully", {
+        position: "top-right",
       });
       return resp;
     }
   } catch (err) {
     console.error(err);
-    toast.error( 'Something went wrong',{
-      position:'top-right',
+    toast.error("Something went wrong", {
+      position: "top-right",
     });
   }
 };
 const logInWithEmailAndPassword = async (email, password) => {
   try {
-    const res =  await signInWithEmailAndPassword(auth, email, password);
+    const res = await signInWithEmailAndPassword(auth, email, password);
     console.log(res);
-    toast.success( 'Logged in successfully',{
-      position:'top-right',
+    toast.success("Logged in successfully", {
+      position: "top-right",
     });
-} catch (err) {
+  } catch (err) {
     console.error(err);
-    toast.error( 'Something went wrong',{
-      position:'top-right',
+    toast.error("Something went wrong", {
+      position: "top-right",
     });
   }
 };
@@ -93,14 +93,14 @@ const registerWithEmailAndPassword = async (name, email, password) => {
       authProvider: "local",
       email,
     });
-    toast.success( 'User registered',{
-      position:'top-right',
+    toast.success("User registered", {
+      position: "top-right",
     });
     return resp;
   } catch (err) {
     console.error(err);
-    toast.error( 'Something went wrong',{
-      position:'top-right',
+    toast.error("Something went wrong", {
+      position: "top-right",
     });
   }
 };
@@ -110,116 +110,121 @@ const sendPasswordReset = async (email) => {
     alert("Password reset link sent!");
   } catch (err) {
     console.error(err);
-    toast.error( 'Something went wrong',{
-      position:'top-right',
+    toast.error("Something went wrong", {
+      position: "top-right",
     });
   }
 };
 
-const logout = async() => {
+const logout = async () => {
   await signOut(auth);
-  toast.success( 'Code saved successfully',{
-    position:'top-right'
+  toast.success("Code saved successfully", {
+    position: "top-right",
   });
 };
 
- // store the html css js code in the database associated to a user
-  // const saveCode = async (html, css, js) => {
-  //   if (!auth.currentUser) {
-  //     throw new Error("You must be logged in to save your code");
-  //   }
-  //   try {
-  //     await addDoc(collection(db, "users"), {
-  //       uid: auth.currentUser.uid,
-  //       html,
-  //       css,
-  //       js,
-  //     });
-  //     alert("Code saved successfully");
-  //   } catch (err) {
-  //     console.error(err);
-  //     alert("Error saving code");
-  //   }
-  // }
- // store the html css js code in the database with table code associated to a user and if a save again then it will update the code in the database
-  const saveCode = async (html, css, js,id) => {
-    if (!auth.currentUser) {
-      throw new Error("You must be logged in to save your code");
-    }
-    try {
-      const resp =  await setDoc(doc(db, "code", id), {
-        uid: auth.currentUser.uid,
-        html,
-        css,
-        js,
-      });
-      console.log(resp);
-      // alert("Code saved successfully");
-      toast.success( 'Code saved successfully',{
-        position:'top-right'
-      });
-
-    } catch (err) {
-      console.error(err);
-       toast.error( 'Something went wrong',{
-        position:'top-right',
-      });
-    }
-  };
-
-  // create a new code document
-  const createCode = async (html, css, js) => {
-    if (!auth.currentUser) {
-      throw new Error("You must be logged in to save your code");
-    }
-    try {
-      const resp = await addDoc(collection(db, "code"), {
-        uid: auth.currentUser.uid,
-        html,
-        css,
-        js,
-      });
-      return resp.id;
-    } catch (err) {
-      console.error(err);
-      toast.error( 'Something went wrong',{
-        position:'top-right',
-      });
-    }
+// store the html css js code in the database associated to a user
+// const saveCode = async (html, css, js) => {
+//   if (!auth.currentUser) {
+//     throw new Error("You must be logged in to save your code");
+//   }
+//   try {
+//     await addDoc(collection(db, "users"), {
+//       uid: auth.currentUser.uid,
+//       html,
+//       css,
+//       js,
+//     });
+//     alert("Code saved successfully");
+//   } catch (err) {
+//     console.error(err);
+//     alert("Error saving code");
+//   }
+// }
+// store the html css js code in the database with table code associated to a user and if a save again then it will update the code in the database
+const saveCode = async (html, css, js, id) => {
+  if (!auth.currentUser) {
+    throw new Error("You must be logged in to save your code");
   }
-
-  // get the document by id and add a fileName to it
-  const addFileName = async (id, fileName) => {
-    try {
-      await setDoc(doc(db, "code", id), {
-        fileName,
-      }, { merge: true });
-    } catch (err) {
-      console.error(err);
-      toast.error( 'Something went wrong',{
-        position:'top-right',
-      });
-    }
-  }
-
-  const getCodeById = async (id) => {
-    const q = query(collection(db, "code"), where("uid", "==", id));
-    const docs = await getDocs(q);
-    return docs.docs.map((doc) => doc.data());
-  }
-
-  const getAllCodes = async () => {
-    const q = query(collection(db, "code"));
-    const docs = await getDocs(q);
-    console.log(docs.docs)
-    return docs.docs.map((doc) => {
-      return {
-        id: doc.id,
-        ...doc.data()
-      }
+  try {
+    const resp = await setDoc(doc(db, "code", id), {
+      uid: auth.currentUser.uid,
+      html,
+      css,
+      js,
     });
-  
+    console.log(resp);
+    // alert("Code saved successfully");
+    toast.success("Code saved successfully", {
+      position: "top-right",
+    });
+  } catch (err) {
+    console.error(err);
+    toast.error("Something went wrong", {
+      position: "top-right",
+    });
   }
+};
+
+// create a new code document
+const createCode = async (html, css, js) => {
+  if (!auth.currentUser) {
+    throw new Error("You must be logged in to save your code");
+  }
+  try {
+    const resp = await addDoc(collection(db, "code"), {
+      uid: auth.currentUser.uid,
+      html,
+      css,
+      js,
+    });
+    return resp.id;
+  } catch (err) {
+    console.error(err);
+    toast.error("Something went wrong", {
+      position: "top-right",
+    });
+  }
+};
+
+// get the document by id and add a fileName to it
+const addFileName = async (id, fileName) => {
+  try {
+    await setDoc(
+      doc(db, "code", id),
+      {
+        fileName,
+      },
+      { merge: true }
+    );
+  } catch (err) {
+    console.error(err);
+    toast.error("Something went wrong", {
+      position: "top-right",
+    });
+  }
+};
+
+const getCodeById = async (id) => {
+  const q = query(collection(db, "code"), where("uid", "==", id));
+  const docs = await getDocs(q);
+  return docs.docs.map((doc) => doc.data());
+};
+
+const getAllCodes = async (uid) => {
+  const q = query(collection(db, "code"), where("uid", "==", uid ?? auth.currentUser.uid));
+  const querySnapshot = await getDocs(q);
+let allFiles = []
+    querySnapshot.forEach((doc) => {
+    let data = {
+      id: doc.id,
+      ...doc.data(),
+    }
+    allFiles.push(data)
+  });
+  console.log('--->all files',allFiles)
+  return allFiles;
+};
 
 export {
   auth,

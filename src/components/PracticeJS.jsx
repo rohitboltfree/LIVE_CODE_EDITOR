@@ -20,10 +20,10 @@ function PracticeJS() {
 
   useEffect(() => {
     (async () => {
-      const data = await getAllCodes();
+      const data = await getAllCodes(user.uid);
       setFiles(data);
     })()
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     files.forEach((file) => {
@@ -42,12 +42,12 @@ function PracticeJS() {
     if (name && id) {
       const res = await addFileName(id,name);
       console.log('id', res)
-      // const data = await getAllCodes();
-      // setUser({
-      //   ...user,
-      //   currentFile: data[data.length - 1],
-      //   files: data,
-      // })
+      const data = await getAllCodes();
+      setUser({
+        ...user,
+        currentFile: data[data.length - 1],
+        files: data,
+      })
       // navigate(`/playground/${id}`);
     }
   }
@@ -98,9 +98,13 @@ function PracticeJS() {
         </Button>
       </div>
       {
+        console.log(files)
+
+      }
+      {
         user?.userDetail && files.map((file,id) => {
           return (
-            <Link key={id} className='w-full' to={`/playground/${file.fileName}`}>
+            <Link key={id} className='w-full' to={`/playground/${file.fileName ?? file.id}`}>
               <div className='border flex justify-between gap-3 px-3 py-2 rounded-lg'>
                 <span>
                 {

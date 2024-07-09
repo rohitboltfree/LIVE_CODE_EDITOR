@@ -1,32 +1,21 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Box, styled,Button, Avatar} from '@mui/material';
+import { Button } from '@mui/material';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/material.css';
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useContext } from 'react';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useUser } from '../Context/User';
 import { EditorContext } from '../components/PracticeJS';
+import { addFileName, createCode, getAllCodes, saveCode } from '../config/firebase';
 
 
 function File() {
 
-    const [isOpen, setIsOpen] = useState(false);
-    const [open, setOpen] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
     const params = useParams();
     const { html, css, js, setHtml, setCss, setJs } = useContext(EditorContext);
   
     const { user, setUser } = useUser();
-  
-    const toggleMenu = () => {
-      setIsOpen(!isOpen);
-    };
-  
-    // useEffect(() => {
-    //   (async () => {
-       
-    //   })()
-    // }, []);
   
     console.log('user', user)
   
