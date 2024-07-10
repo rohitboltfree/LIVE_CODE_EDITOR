@@ -66,6 +66,10 @@ function PracticeJS() {
         currentFile: data[data.length - 1],
         files: data,
       })
+      toast.success('File saved ', {
+        position: "top-right",
+        icon: '👏',
+      })
       navigate(`/playground/${id}`);
     }
   }

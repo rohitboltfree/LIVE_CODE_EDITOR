@@ -118,7 +118,7 @@ const sendPasswordReset = async (email) => {
 
 const logout = async () => {
   await signOut(auth);
-  toast.success("Code saved successfully", {
+  toast.success("Log out successfully", {
     position: "top-right",
   });
 };
