@@ -12,14 +12,46 @@ import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import { FlipWordsDemo } from "./FlipWordsDemo";
 import { GlobeDemo } from "./GlobeDemo";
+import { GridBackgroundDemo } from "./GridBackgroundDemo";
+import { TypewriterEffectSmoothDemo } from "./TypewriterEffectSmoothDemo";
+import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
+import { BackgroundGradientDemo } from "./BackgroundGradientDemo";
 
+const featuresWords = [
+  {
+    text: "Features",
+  },
+  {
+    text: "of",
+  },
+  {
+    text: "this",
+  },
+  {
+    text: "site",
+  },
+  
+];
+
+const aboutWords = [
+ {
+    text: "About",
+ },
+  {
+      text: "this",
+  },
+  {
+      text: "site",
+  },
+]
 
 function Home() {
   return (
     <>
-      <main className=" bg-stone-900 text-white overflow-hidden overflow-y-scroll relative">
-        <section className="max-w-7xl xl:p-0 pt-20 px-10 mx-auto grid grid-cols-1 lg:grid-cols-2">
-          <div className="flex items-center justify-center">
+      <main className=" bg-[#070F2B] text-white overflow-hidden overflow-y-scroll relative">
+      <GridBackgroundDemo>
+      <section className="max-w-7xl xl:p-0 pt-20 px-10 mx-auto grid grid-cols-1 lg:grid-cols-2">
+          <div className="flex items-center justify-center lg:pr-10">
           <FlipWordsDemo />
             {/* <br className="sm:block hidden" />
             <img
@@ -47,30 +79,40 @@ function Home() {
             <GlobeDemo/>
           </div>
         </section>
+      </GridBackgroundDemo>
+      
         <section className="overflow-hidden w-100vw max-w-65rem flex flex-col justify-center align-text mx-0 my-auto text-center items-center ">
           <span className="font-bold text-5xl mb-4 pt-12  ">
-            Features of this site
+          <TypewriterEffectSmoothDemo/>
           </span>
           <br />
           <span className="font-normal text-lg px-0 py-8 max-w-4xl ">
             JS lab is skilled and passionate about HTML,CSS, & JAVASCRIPT and have
             many thing that you can learn about these three
           </span>
-          <div className="flex flex-wrap justify-center ">
-            <div className="m-8">
-              <MediaCard1 />
-            </div>
-            <div className="m-8">
-              <MediaCard2 />
-            </div>
-            <div className="m-8">
-              <MediaCard3 />
-            </div>
+          <div className="flex flex-wrap gap-10 justify-center ">
+              <BackgroundGradientDemo
+                img={"https://png.pngtree.com/thumb_back/fw800/background/20221015/pngtree-abstract-programming-workflow-a-realtime-html-code-development-screen-photo-image_28457152.jpg"}
+                title={"HTML"}
+                description={"In this we cover all about html"}
+              />
+              <BackgroundGradientDemo
+                img={"https://i.morioh.com/2023/10/13/73dac01b.webp"}
+                title={"CSS"}
+                description={"In this we cover all about css"}
+              />
+              {/* <MediaCard3 /> */}
+              <BackgroundGradientDemo
+                img={"https://img.freepik.com/premium-photo/software-developer-programming-code-abstract-computer-script-code-selective-focus_372999-1037.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1698883200&semt=ais"}
+                title={"JAVASCRIPT"}
+                description={"In this we cover all about javascript"}
+
+              />
           </div>
         </section>
         <section className="overflow-hidden w-100vw max-w-65rem flex flex-col justify-center align-text mx-0 my-auto text-center items-center ">
           <span className="font-bold text-5xl mb-6 pt-12  ">
-            About of this site
+            <TypewriterEffectSmooth words={aboutWords} />
           </span>
           <br />
           <span className="font-normal text-lg px-0 py-8 max-w-4xl ">

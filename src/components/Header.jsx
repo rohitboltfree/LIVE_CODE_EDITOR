@@ -26,7 +26,7 @@ export default function Header() {
 
   return (
     
-    <nav className="bg-slate-800 shadow-lg p-3 px-8 ">
+    <nav className="bg-[#070F2B] shadow-lg p-3 px-8 ">
       <Modal
         open={open}
         onClose={() => {
