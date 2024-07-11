@@ -11,20 +11,17 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import { FlipWordsDemo } from "./FlipWordsDemo";
+import { GlobeDemo } from "./GlobeDemo";
 
 
 function Home() {
   return (
     <>
-      <main className="bg-stone-900 text-white overflow-hidden overflow-y-scroll relative">
-        <section className="relative flex flex-wrap justify-around w-100vw mx-0 my-auto">
-          
-          <div className="h-full p-8 text-3xl flex flex-col justify-center">
+      <main className=" bg-stone-900 text-white overflow-hidden overflow-y-scroll relative">
+        <section className="max-w-7xl xl:p-0 pt-20 px-10 mx-auto grid grid-cols-1 lg:grid-cols-2">
+          <div className="flex items-center justify-center">
           <FlipWordsDemo />
-
-          
-            <br className="sm:block hidden" />
-
+            {/* <br className="sm:block hidden" />
             <img
               className=" top-10  object-cover text-center max-w-40 max-h-40"
               src={logo}
@@ -39,14 +36,15 @@ function Home() {
 
             <p className="text-lg font-thin">
               You can learn many thing about HTML,CSS & JAVASCRIPT
-            </p>
+            </p> */}
           </div>
-          <div className="right-0  justify-end rounded-xl h-1/3 ">
+          <div className="mt-10 lg:mt-0">
             {/* <img className='h-100vh top-6' src={side2} alt="Logo" /> */}
-            <Lottie
+            {/* <Lottie
               className="flex-1 mt-8 realtive overflow-hidden"
               animationData={animationData}
-            />
+            /> */}
+            <GlobeDemo/>
           </div>
         </section>
         <section className="overflow-hidden w-100vw max-w-65rem flex flex-col justify-center align-text mx-0 my-auto text-center items-center ">
