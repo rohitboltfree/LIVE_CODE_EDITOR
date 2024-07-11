@@ -36,12 +36,12 @@ function Home() {
             <br />
 
             <span className="text-2xl font-thin">
-              JS LAB is a coding website focused on <br /> HTML, CSS, and
+              JS LAB is a coding website focused on <br /> HTML, CSS, &
               JavaScript.
             </span>
 
             <p className="text-lg font-thin">
-              You can learn many thing about html,css,JavaScript
+              You can learn many thing about HTML,CSS & JAVASCRIPT
             </p>
           </div>
           <div className="right-0  justify-end rounded-xl h-1/3 ">
@@ -58,7 +58,7 @@ function Home() {
           </span>
           <br />
           <span className="font-normal text-lg px-0 py-8 max-w-4xl ">
-            JS lab is skilled and passionate about HTML,CSS,JAVASCRIPT and have
+            JS lab is skilled and passionate about HTML,CSS, & JAVASCRIPT and have
             many thing that you can learn about these three
           </span>
           <div className="flex flex-wrap justify-center ">
@@ -79,7 +79,7 @@ function Home() {
           </span>
           <br />
           <span className="font-normal text-lg px-0 py-8 max-w-4xl ">
-            JS lab is skilled and passionate about HTML,CSS,JAVASCRIPT and have
+            JS lab is skilled and passionate about HTML,CSS, & JAVASCRIPT and have
             many thing that you can learn about these three
           </span>
           <div className="m-6  w-3/4 text-left ">
@@ -136,7 +136,7 @@ function Home() {
           </div>
         </section>
         <footer className="w-100vw h-16 flex items-center justify-center font-extralight text-sm">
-          Good you have completly visited Js Labs
+          Good! "you have completly visited Js Labs"
         </footer>
       </main>
     </>
