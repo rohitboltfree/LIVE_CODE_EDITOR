@@ -171,7 +171,7 @@ export function MediaCard1() {
           Notes
         </Link>
         <Link
-          to="/Test skills"
+          to="/test-skill"
           className={({ isActive }) =>
             `${
               isActive ? "text-blue-500" : "text-grey-700"
@@ -212,7 +212,7 @@ export function MediaCard2() {
           Notes
         </Link>
         <Link
-          to="/Test skills"
+          to="/test-skill"
           className={({ isActive }) =>
             `${
               isActive ? "text-blue-500" : "text-grey-700"
@@ -253,7 +253,7 @@ export function MediaCard3() {
           Notes
         </Link>
         <Link
-          to="/Test skills"
+          to="/test-skill"
           className={({ isActive }) =>
             `${
               isActive ? "text-blue-500" : "text-grey-700"

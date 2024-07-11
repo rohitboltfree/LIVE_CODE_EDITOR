@@ -125,7 +125,7 @@ export default function Header() {
           <Link
             to="#"
             onClick={() => {
-              {user?.userDetail ? console.log("good") : setOpen(true) }
+              {!user?.userDetail && setOpen(true) }
             }}
             className="inline-flex items-center justify-center px-3 py-2 font-medium text-slim rounded-md text-white hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out"
           >
