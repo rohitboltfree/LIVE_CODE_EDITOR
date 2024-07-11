@@ -10,6 +10,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
+import { FlipWordsDemo } from "./FlipWordsDemo";
 
 
 function Home() {
@@ -17,15 +18,11 @@ function Home() {
     <>
       <main className="bg-stone-900 text-white overflow-hidden overflow-y-scroll relative">
         <section className="relative flex flex-wrap justify-around w-100vw mx-0 my-auto">
-          <br />
-          <br />
+          
           <div className="h-full p-8 text-3xl flex flex-col justify-center">
-            <span className="flex  mt-16 flex-row justify-between items-center w-full text-gradient">
-              Sometimes,
-            </span>
-            <span className=" font-poppins font-semibold ss:text-[72px] text-[52px] text-white ss:leading-[100px] leading-[75px]">
-              you just need to see it.
-            </span>
+          <FlipWordsDemo />
+
+          
             <br className="sm:block hidden" />
 
             <img
