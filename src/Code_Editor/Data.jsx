@@ -37,13 +37,16 @@ function Data() {
             color="#FF3C41" 
             value={html}
             onChange={setHtml} 
-            /> */}
+            style={'controlled-editor'}
+            />
         <Editor 
              heading="CSS"
              icon="{}"
              color="#0EBEFF"
              value={css}
              onChange={setCss}
+            style={'controlled-editor'}
+
              />
             
         <Editor
@@ -52,7 +55,7 @@ function Data() {
              color="#FCD000"
              value={js}
             onChange={setJs}
-            
+            style={'controlled-editor'}
             />
       </Container>
     )
