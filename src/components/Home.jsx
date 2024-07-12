@@ -12,6 +12,7 @@ import { FlipWordsDemo } from "./FlipWordsDemo";
 import { GlobeDemo } from "./GlobeDemo";
 import { TypewriterEffectSmoothDemo } from "./TypewriterEffectSmoothDemo";
 import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
+import { GridBackgroundDemo } from "./GridBackgroundDemo";
 
 const featuresWords = [
   {
@@ -42,7 +43,7 @@ const aboutWords = [
 
 function Home() {
   return (
-    <>
+    <GridBackgroundDemo>
       <main className=" text-white max-w-7xl mx-auto">
         <section className="xl:p-0 pt-20 px-10 mx-auto grid grid-cols-1 lg:grid-cols-2">
           <div className="flex items-center justify-center lg:pr-10">
@@ -168,7 +169,7 @@ function Home() {
           Good! "you have completly visited Js Labs"
         </footer>
       </main>
-    </>
+    </GridBackgroundDemo>
   );
 }
 
