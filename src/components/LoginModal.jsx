@@ -9,7 +9,7 @@ import {
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 
-export function LoginModal({ type }) {
+export function LoginModal({ type,styles }) {
   const handleSubmit = (e) => {
     if(type=="login") {
 
@@ -24,7 +24,7 @@ export function LoginModal({ type }) {
 
   };
   return (
-    <div className="flex items-center justify-center">
+    <div className={`${styles} `}>
       <Modal>
         <ModalTrigger className="outline outline-1 dark:bg-white dark:text-black text-white flex justify-center group/modal-btn">
           <span className="group-hover/modal-btn:translate-x-40 text-center transition duration-500">

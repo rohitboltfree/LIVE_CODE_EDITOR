@@ -122,7 +122,7 @@ export default function Header() {
           </button>
 
         </div>
-        <div className='flex space-x-3'>
+        <div className='hidden md:flex space-x-3'>
           {/* <Link
             to="#"
             onClick={() => {
@@ -201,13 +201,15 @@ export default function Header() {
                 </NavLink>
               </li>
               <li>
-                <Link
+                {/* <Link
                   to="#"
                   onClick={toggleMenu}
                   className=" inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out"
                 >
                   Log in
-                </Link>
+                </Link> */}
+                 <LoginModal type="login" styles={'pt-2 px-3'} />
+                 <LoginModal type="" styles={'pt-4 px-3'} />
               </li>
             </ul>
           </div>
