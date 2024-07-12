@@ -12,7 +12,7 @@ export function FlipWordsDemo() {
         
       </div>
       <div className="">
-      <p className="text-left pt-4">The Best Place to Practice and Perfect Your Web Development Skills</p>
+      <p className="text-left font-normal pt-4">The Best Place to Practice and Perfect Your Web Development Skills</p>
       </div>
       {/* <span className="flex  mt-16 flex-row justify-between items-center w-full text-gradient">
         Sometimes,
