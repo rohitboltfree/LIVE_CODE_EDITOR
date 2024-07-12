@@ -8,6 +8,7 @@ import { useUser } from '../Context/User';
 import Auth from './auth/Auth';
 import logo from './logo.png';
 import { EditorContext } from './PracticeJS';
+import { LoginModal } from './LoginModal';
 
 export default function Header() {
 
@@ -121,8 +122,8 @@ export default function Header() {
           </button>
 
         </div>
-        <div className='hidden md:block space-x-3'>
-          <Link
+        <div className='flex space-x-3'>
+          {/* <Link
             to="#"
             onClick={() => {
               {!user?.userDetail && setOpen(true) }
@@ -131,7 +132,10 @@ export default function Header() {
           >
             {user?.userDetail ? <Avatar sx={{ width: 28, height: 28 }} alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
               : 'Log in'}
-          </Link>
+          </Link> */}
+              <LoginModal type="login" />
+              <LoginModal type="" />
+          
 
           {
             user?.userDetail && (
