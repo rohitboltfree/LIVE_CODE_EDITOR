@@ -75,7 +75,7 @@ function Home() {
           </div>
         </section>
 
-        <section className="text-center mb-32">
+        <section className="text-center mb-32 pt-20 px-10">
           <TypewriterEffectSmooth words={featuresWords} />
           <p className="font-normal text-white text-center text-sm pb-20">
             JS lab is skilled and passionate about HTML,CSS, & JAVASCRIPT and
@@ -104,7 +104,7 @@ function Home() {
             />
           </div>
         </section>
-        <section className="">
+        <section className="pt-20 px-10">
           <TypewriterEffectSmooth words={aboutWords} />
           <p className="font-normal text-center text-white text-sm pb-20">
             JS lab is skilled and passionate about HTML,CSS, & JAVASCRIPT and
@@ -165,7 +165,7 @@ function Home() {
             </div>
           </div>
         </section>
-        <footer className="w-100vw h-16 flex items-center justify-center font-extralight text-sm">
+        <footer className="pt-20 px-10 w-100vw h-16 flex items-center justify-center font-extralight text-sm">
           Good! "you have completly visited Js Labs"
         </footer>
       </main>
