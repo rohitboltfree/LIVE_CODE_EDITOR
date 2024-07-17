@@ -1,14 +1,13 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 // import Code from '../Code_Editor/Code';
 import { Button } from '@mui/material';
+import { IconEdit } from '@tabler/icons-react';
+import toast from 'react-hot-toast';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Data from '../Code_Editor/Data';
 import Result from '../Code_Editor/Result';
 import { addFileName, createCode, getAllCodes, saveCode } from '../config/firebase';
 import { useUser } from '../Context/User';
-import SendIcon from '@mui/icons-material/Send';
-import toast from 'react-hot-toast';
-import { IconEdit } from '@tabler/icons-react';
 
 export const EditorContext = createContext(null);
 
@@ -76,7 +75,7 @@ function PracticeJS() {
   }
   return (
     <div className='flex flex-wrap container mx-auto p-4 gap-2'>
-      <aside className='p-4 border flex-1 md:flex-grow-0  flex flex-col gap-1 min-w-44 items-center'>
+      <aside className='p-4 border flex-1 md:flex-grow-0  flex flex-col gap-1 min-w-52 items-center'>
       <div className="save-new flex flex-wrap gap-3 my-3">
         <Button onClick={handleSave} size='small' variant='outlined'>
           Save
@@ -129,7 +128,6 @@ function PracticeJS() {
       }
       </aside>
       <main className='flex flex-col flex-1'>
-
       <Data />
       <Result />
       </main>

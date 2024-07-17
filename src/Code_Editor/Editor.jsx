@@ -43,10 +43,8 @@ function Editor({ heading, icon, color, value, onChange,style }) {
   return (
     <>
       <Container style={open ? null : { flexGrow: 0 }}
-      sx={{
-        height: '50vh',
-      }}
-      >
+      
+      className='min-h-80'>
         <Header>
           <Heading>
             <Box component="span"
@@ -68,7 +66,7 @@ function Editor({ heading, icon, color, value, onChange,style }) {
           />
         </Header>
         <ControlledEditor
-          className={`flex-1 overflow-y-auto h-1/3  ${style}`}
+          className={`flex-1 overflow-y-auto ${style}`}
           value={value}
           onBeforeChange={handleChange}
           options={{

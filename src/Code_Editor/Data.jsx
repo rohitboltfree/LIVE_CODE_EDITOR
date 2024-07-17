@@ -1,10 +1,8 @@
-import React from 'react'
-import { useContext } from 'react';
-import Editor from './Editor'
-import {Box, styled} from '@mui/material';
+import { Box, styled } from '@mui/material';
+import React, { useContext } from 'react';
+import Editor from './Editor';
 // import { DataContext } from '../Context/DataProvider';
 import { EditorContext } from '../components/PracticeJS';
-import { Height } from '@mui/icons-material';
 
 
 
