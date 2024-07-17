@@ -75,8 +75,8 @@ function PracticeJS() {
     }
   }
   return (
-    <div className='flex container mx-auto p-4 gap-2'>
-      <aside className='p-4 border  flex flex-col gap-1 min-w-44 items-center'>
+    <div className='flex flex-wrap container mx-auto p-4 gap-2'>
+      <aside className='p-4 border flex-1 md:flex-grow-0  flex flex-col gap-1 min-w-44 items-center'>
       <div className="save-new flex flex-wrap gap-3 my-3">
         <Button onClick={handleSave} size='small' variant='outlined'>
           Save
@@ -102,10 +102,7 @@ function PracticeJS() {
           New
         </Button>
       </div>
-      {
-        console.log(files)
-
-      }
+    
       {
         user?.userDetail && files.map((file,id) => {
           return (
@@ -131,8 +128,7 @@ function PracticeJS() {
         })
       }
       </aside>
-      <main className='flex-1'>
-
+      <main className='flex flex-col flex-1'>
 
       <Data />
       <Result />

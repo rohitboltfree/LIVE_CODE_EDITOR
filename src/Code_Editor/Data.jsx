@@ -11,7 +11,6 @@ import { Height } from '@mui/icons-material';
 const Container = styled(Box)`
       display: flex;
       background-color:#060606;
-      height:50vh;
 `
 
 
@@ -23,14 +22,18 @@ function Data() {
     console.log(html)
     
     return (
-      <Container>
+      <Container sx={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+      }}>
         <Editor 
             heading="HTML"
             icon="<>"
             color="#FF3C41" 
             value={html}
             onChange={setHtml} 
-            style={'controlled-editor'}
+            style={'controlled-editor '}
             />
         <Editor 
              heading="CSS"

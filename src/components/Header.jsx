@@ -202,6 +202,18 @@ export default function Header() {
               </li>
               <li>
                 <NavLink
+                  to="/playground"
+                  className={({ isActive }) =>
+                    `${
+                      isActive ? "text-orange-700" : "text-grey-700"
+                    } block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium`
+                  }
+                >
+                  playground
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
                   to="/test-skill"
                   className={({ isActive }) =>
                     `${

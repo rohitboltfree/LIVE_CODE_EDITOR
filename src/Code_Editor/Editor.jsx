@@ -34,20 +34,19 @@ const Header = styled(Box)`
 `
 
 function Editor({ heading, icon, color, value, onChange,style }) {
-
-
-
-
+ 
   const [open, setOpen] = useState(true);
-
   const handleChange = (editor, data, value) => {
     onChange(value);
   }
 
   return (
     <>
-     
-      <Container style={open ? null : { flexGrow: 0 }}>
+      <Container style={open ? null : { flexGrow: 0 }}
+      sx={{
+        height: '50vh',
+      }}
+      >
         <Header>
           <Heading>
             <Box component="span"
@@ -69,7 +68,7 @@ function Editor({ heading, icon, color, value, onChange,style }) {
           />
         </Header>
         <ControlledEditor
-          className={`flex-1 overflow-y-auto h-full ${style}`}
+          className={`flex-1 overflow-y-auto h-1/3  ${style}`}
           value={value}
           onBeforeChange={handleChange}
           options={{
