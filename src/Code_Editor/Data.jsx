@@ -12,8 +12,6 @@ const Container = styled(Box)`
 `
 
 
-
-
 function Data() {
 
     const { html,setHtml,css,setCss,js,setJs } = useContext(EditorContext);

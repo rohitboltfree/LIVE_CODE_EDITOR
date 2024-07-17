@@ -1,12 +1,11 @@
-import { Button, Typography } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import { Box, Button, Typography } from '@mui/material';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
+import { Document, Page, StyleSheet, Text } from '@react-pdf/renderer';
+import React, { useEffect, useState } from 'react';
 import { myDocs } from '../../utils/docs';
-import { Document, Image, Page, StyleSheet, Text, View } from '@react-pdf/renderer';
-
-
+import { transform } from 'framer-motion';
 
 
 const styles = StyleSheet.create({
@@ -69,14 +68,20 @@ const Notes = () => {
 
     return (
         <div className="flex h-fit bg-gray-100 flex-1">
-            <div
+            <Box 
                 style={{
                     // display: toggle ? 'block' : 'none',
-                    width: `${toggle ? '300px' : '0%'}`,
                     transition: 'all 0.5s ease',
-                    overflow: `${toggle ? 'auto' : 'hidden'}`
+                    overflow: `${toggle ? 'auto' : 'hidden'}`,
+                    transform: `${toggle ? 'translateX(0)' : 'translateX(-100%)'}`,
                 }}
-                className="sidebar  flex flex-col justify-start  border">
+                className={`fixed bottom-0 top-0 z-10 bg-white shadow-md transition-all p-3 `}>
+                <Button
+                variant="outlined"
+                sx={{
+                    mb:2
+                }}
+                onClick={() => setToggle(!toggle)}>{toggle ? 'Close' : 'Open'}</Button>
                 {myDocs.map(doc => {
                     return (
                         <>
@@ -91,7 +96,7 @@ const Notes = () => {
                                 <AccordionDetails >
                                     {doc.topics?.length > 0 && doc.topics.map(topic => {
                                         return (
-                                            <div >
+                                            <div key={topic}>
                                                 <button
                     
                                                     onClick={() => {
@@ -107,7 +112,7 @@ const Notes = () => {
                         </>
                     )
                 })}
-            </div>
+            </Box>
             <div className="border border-red-500 bg-gray-200  w-full">
                 <div className="toggle">
                     <Button onClick={() => setToggle(!toggle)}>{toggle ? 'Close' : 'Open'}</Button>
