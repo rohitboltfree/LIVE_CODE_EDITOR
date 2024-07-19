@@ -112,9 +112,9 @@ function Home() {
           </p>
           <div className="flex flex-col text-white items-center">
             <div className="m-6  w-3/4 text-left ">
-              <div className="flex m-1 px-6 py-8 rounded-lg  bg-zinc-800">
+              <div className="flex justify-center items-center lg:justify-normal flex-wrap lg:flex-nowrap text-center lg:text-left m-1 px-6 py-8 rounded-lg  bg-zinc-800">
                 <img
-                  className="rounded-3xl object-cover h-12 w-12 mr-8"
+                  className="rounded-3xl object-cover h-12 w-12 lg:mr-8"
                   src="https://e7.pngegg.com/pngimages/5/917/png-clipart-web-development-computer-icons-computer-programming-programmer-html-firm-miscellaneous-angle-thumbnail.png"
                   alt="html"
                 />
@@ -128,10 +128,10 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="m-6  w-3/4 text-left ">
-              <div className="  flex m-1 px-6 py-8 rounded-lg  bg-zinc-800">
+            <div className="flex justify-center items-center lg:justify-normal lg:flex-nowrap  m-6 flex-wrap   lg:text-left  w-3/4   ">
+              <div className="flex justify-center lg:justify-normal flex-wrap lg:flex-nowrap text-center lg:text-left m-1 px-6 py-8 rounded-lg  bg-zinc-800">
                 <img
-                  className="rounded-3xl object-cover h-12 w-12 mr-8 bg-zinc-800"
+                  className="rounded-3xl object-cover h-12 w-12 lg:mr-8"
                   src="https://w7.pngwing.com/pngs/230/514/png-transparent-front-end-web-development-html-css-design-and-build-web-sites-cascading-style-sheets-stage-web-design-text-logo-thumbnail.png"
                   alt="css"
                 />
@@ -146,10 +146,10 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="m-6  w-3/4 text-left ">
-              <div className="  flex m-1 px-6 py-8 rounded-lg  bg-zinc-800">
+            <div className="m-6 flex-wrap lg:text-left w-3/4  ">
+              <div className="flex justify-center items-center lg:justify-normal flex-wrap lg:flex-nowrap text-center lg:text-left m-1 px-6 py-8 rounded-lg  bg-zinc-800">
                 <img
-                  className="rounded-3xl object-cover h-16 w-16 mr-8"
+                  className="rounded-3xl object-cover h-12 w-12 lg:mr-8"
                   src={js_circle}
                   alt="js"
                 />
