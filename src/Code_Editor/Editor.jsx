@@ -7,6 +7,7 @@ import 'codemirror/mode/xml/xml';
 import 'codemirror/mode/css/css';
 import 'codemirror/mode/javascript/javascript';
 import CloseIcon from '@mui/icons-material/Close';
+import { IconSquareToggle, IconSquareToggleHorizontal } from '@tabler/icons-react';
 
 const Container = styled(Box)`
       flex-grow:1;
@@ -57,9 +58,13 @@ function Editor({ heading, icon, color, value, onChange,style }) {
             >{icon}</Box>
             {heading}
           </Heading>
-          <CloseIcon
+          {/* <CloseIcon
             fontSize='small'
             style={{ alignSelf: 'center' }}
+            onClick={() => setOpen(prevstate => !prevstate)}
+          /> */}
+          <IconSquareToggle
+            style={{ alignSelf: 'center',margin:'0 12px', cursor: 'pointer' }}
             onClick={() => setOpen(prevstate => !prevstate)}
           />
         </Header>

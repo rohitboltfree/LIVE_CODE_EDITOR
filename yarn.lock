@@ -1220,6 +1220,32 @@
   resolved "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.1.0.tgz"
   integrity sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==
 
+"@radix-ui/react-compose-refs@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/@radix-ui/react-compose-refs/-/react-compose-refs-1.1.0.tgz"
+  integrity sha512-b4inOtiaOnYf9KWyO3jAeeCG6FeyfY6ldiEPanbUjWd+xIk5wZeHa8yVwmrJ2vderhu/BQvzCrJI0lHd+wIiqw==
+
+"@radix-ui/react-label@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.npmjs.org/@radix-ui/react-label/-/react-label-2.1.0.tgz"
+  integrity sha512-peLblDlFw/ngk3UWq0VnYaOLy6agTZZ+MUO/WhVfm14vJGML+xH4FAl2XQGLqdefjNb7ApRg6Yn7U42ZhmYXdw==
+  dependencies:
+    "@radix-ui/react-primitive" "2.0.0"
+
+"@radix-ui/react-primitive@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/@radix-ui/react-primitive/-/react-primitive-2.0.0.tgz"
+  integrity sha512-ZSpFm0/uHa8zTvKBDjLFWLo8dkr4MBsiDLz0g3gMUwqgLHz9rTaRRGYDgvZPtBJgYCBKXkS9fzmoySgr8CO6Cw==
+  dependencies:
+    "@radix-ui/react-slot" "1.1.0"
+
+"@radix-ui/react-slot@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/@radix-ui/react-slot/-/react-slot-1.1.0.tgz"
+  integrity sha512-FUCf5XMfmW4dtYl69pdS4DbxKy8nj4M7SafBgPllysxmdachynNflAdp/gCsnYWNDnge6tI9onzMp5ARYc1KNw==
+  dependencies:
+    "@radix-ui/react-compose-refs" "1.1.0"
+
 "@react-pdf/fns@2.2.1":
   version "2.2.1"
   resolved "https://registry.npmjs.org/@react-pdf/fns/-/fns-2.2.1.tgz"
@@ -1500,6 +1526,18 @@
     legacy-swc-helpers "npm:@swc/helpers@=0.4.14"
     tslib "^2.4.0"
 
+"@tabler/icons-react@^3.10.0":
+  version "3.10.0"
+  resolved "https://registry.npmjs.org/@tabler/icons-react/-/icons-react-3.10.0.tgz"
+  integrity sha512-FTES0wJLIV+M9Ggng0j/6Kn/j43ZuBukR5n6DNV8Npk4woPCDcRjA+2KzKQyvSdwtPMAM6o1e8fQBPDS337Spg==
+  dependencies:
+    "@tabler/icons" "3.10.0"
+
+"@tabler/icons@3.10.0":
+  version "3.10.0"
+  resolved "https://registry.npmjs.org/@tabler/icons/-/icons-3.10.0.tgz"
+  integrity sha512-jCMO+hDTw8Gn1CNb15zIENLQ9b0UplGXtjMnEUhDoKH+Q4fta8tBLUxZpPpFtpV+q+gzGqfM76xNAoD1GBpmnA==
+
 "@tufjs/canonical-json@2.0.0":
   version "2.0.0"
   resolved "https://registry.npmjs.org/@tufjs/canonical-json/-/canonical-json-2.0.0.tgz"
@@ -1603,7 +1641,7 @@
   resolved "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.12.tgz"
   integrity sha512-5zvhXYtRNRluoE/jAp4GVsSduVUzNWKkOZrCDBWYtE7biZywwdC2AcEzg+cSMLFRfVgeAFqpfNabiPjxFddV1Q==
 
-"@types/react-dom@^18.2.22":
+"@types/react-dom@*", "@types/react-dom@^18.2.22":
   version "18.3.0"
   resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-18.3.0.tgz"
   integrity sha512-EhwApuTmMBmXuFOikhQLIBUn6uFg81SwLMOAUgodJF14SOBOCMdU04gDoYi0WOJJHD144TL32z4yDqCW3dnkQg==
@@ -4810,7 +4848,11 @@ react-composer@^5.0.3:
   dependencies:
     prop-types "^15.6.0"
 
+<<<<<<< HEAD
 react-dom@^18.2.0:
+=======
+"react-dom@^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc", "react-dom@^16.8.0 || ^17.0.0 || ^18.0.0", "react-dom@^17.0.0 || ^18.0.0", react-dom@^18.0.0, react-dom@^18.2.0, react-dom@>=16, react-dom@>=16.13, react-dom@>=16.6.0, react-dom@>=16.8, react-dom@>=16.8.0, react-dom@>=18.0:
+>>>>>>> bf49c0fd665c88a4cd21e3a051e335c66dad5792
   version "18.3.1"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.3.1.tgz"
   integrity sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==
@@ -4885,7 +4927,11 @@ react-use-measure@^2.1.1:
   dependencies:
     debounce "^1.2.1"
 
+<<<<<<< HEAD
 react@^18.2.0:
+=======
+react@*, "react@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17.0.0 || ^18.0.0", react@^18.0.0, react@^18.2.0, react@^18.3.1, "react@>= 16", "react@>= 16.8.0", "react@>=15.5 <=18.x", react@>=16, react@>=16.13, react@>=16.6.0, react@>=16.8, react@>=16.8.0, react@>=17.0, react@>=18.0:
+>>>>>>> bf49c0fd665c88a4cd21e3a051e335c66dad5792
   version "18.3.1"
   resolved "https://registry.npmjs.org/react/-/react-18.3.1.tgz"
   integrity sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==

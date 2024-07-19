@@ -8,6 +8,7 @@ import { addFileName, createCode, getAllCodes, saveCode } from '../config/fireba
 import { useUser } from '../Context/User';
 import SendIcon from '@mui/icons-material/Send';
 import toast from 'react-hot-toast';
+import { IconEdit } from '@tabler/icons-react';
 
 export const EditorContext = createContext(null);
 
@@ -120,7 +121,7 @@ function PracticeJS() {
                 }
                 </span>
                 <span className='' onClick={handleEditFileName}>
-                <SendIcon />
+                <IconEdit/>
                 </span>
               </div>
               {/* <Button endIcon={<SendIcon />} fullWidth size='small' variant='outlined' className='bg-red-400' key={file.id}>

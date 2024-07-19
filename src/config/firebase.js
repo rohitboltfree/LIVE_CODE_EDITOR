@@ -78,18 +78,23 @@ const logInWithEmailAndPassword = async (email, password) => {
     });
   } catch (err) {
     console.error(err);
-    toast.error("Something went wrong", {
+    let errorMessage = 'Something went wrong';
+    if(err.code == 'auth/invalid-credential') {
+      errorMessage = 'Invalid email or password';
+    }
+    toast.error(errorMessage, {
       position: "top-right",
     });
   }
 };
-const registerWithEmailAndPassword = async (name, email, password) => {
+const registerWithEmailAndPassword = async (firstname,lastname, email, password) => {
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
     const resp = await addDoc(collection(db, "users"), {
       uid: user.uid,
-      name,
+      firstname,
+      lastname,
       authProvider: "local",
       email,
     });
