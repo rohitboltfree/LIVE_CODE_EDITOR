@@ -54,7 +54,7 @@ function Test_Skills() {
                                     <Typography>{doc.title}</Typography>
                                 </AccordionSummary>
                                 <AccordionDetails >
-                                    {doc.topics?.length > 0 && doc.topics.map(topic => {
+                                    {doc.topic?.length > 0 && doc.topic.map(topic => {
                                         return (
                                             <div key={topic}>
                                                 <button
